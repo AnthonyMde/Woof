@@ -1,19 +1,19 @@
-package com.example.data.source
+package com.example.data.source.remote
 
-import com.example.domain.models.Publication
+import com.example.data.dto.PublicationDTO
 import com.example.domain.models.UserPreview
 import kotlinx.coroutines.delay
 import java.util.UUID
 
-class RemoteFakeBackEnd {
-    suspend fun getPublications(): List<Publication> {
+class FakeRemoteBackEndImpl : FakeRemoteBackEnd {
+    override suspend fun getPublications(): List<PublicationDTO> {
         delay(2000) // Fake request time.
-        return getMockedPublications()
+        return getMockedPublicationDTOs()
     }
 
-    private fun getMockedPublications(): List<Publication> {
+    private fun getMockedPublicationDTOs(): List<PublicationDTO> {
         return listOf(
-            Publication(
+            PublicationDTO(
                 id = UUID.randomUUID().toString(),
                 userPreview = UserPreview(
                     userId = UUID.randomUUID().toString(),
@@ -23,7 +23,7 @@ class RemoteFakeBackEnd {
                 imageUriString = "android.resource://com.example.woof/drawable/corgi",
                 timestamp = 1732567800000
             ),
-            Publication(
+            PublicationDTO(
                 id = UUID.randomUUID().toString(),
                 userPreview = UserPreview(
                     userId = UUID.randomUUID().toString(),
@@ -33,7 +33,7 @@ class RemoteFakeBackEnd {
                 imageUriString = "android.resource://com.example.woof/drawable/cavalier_king",
                 timestamp = 1732777800000
             ),
-            Publication(
+            PublicationDTO(
                 id = UUID.randomUUID().toString(),
                 userPreview = UserPreview(
                     userId = UUID.randomUUID().toString(),

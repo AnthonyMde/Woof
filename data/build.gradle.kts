@@ -33,6 +33,7 @@ android {
 }
 
 dependencies {
+    api(libs.koin.core)
     implementation(libs.kotlinx.coroutines.core)
 
     testImplementation(libs.junit)
