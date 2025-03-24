@@ -6,7 +6,10 @@ import com.example.domain.models.Resource
 import com.example.domain.usecase.GetPublicationsUseCase
 import com.example.domain.usecase.GetUserSessionUseCase
 import com.example.ui.R
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.onStart
@@ -21,6 +24,24 @@ class HomeViewModel(
     val state = _state.asStateFlow().onStart {
         viewModelScope.launch { loadUserSession() }
         viewModelScope.launch { loadPublications() }
+    }
+    private val _navigationEvent = MutableSharedFlow<HomeScreenNavigationEvent>(
+        extraBufferCapacity = 1,
+        replay = 0,
+        onBufferOverflow = BufferOverflow.DROP_LATEST
+    )
+    val navigationEvent = _navigationEvent.asSharedFlow()
+
+
+    fun onAction(action: HomeScreenAction) {
+        when (action) {
+            HomeScreenAction.OnMyProfileClicked -> onMyProfileClicked()
+        }
+    }
+
+    private fun onMyProfileClicked() = viewModelScope.launch {
+        val userId = getUserSessionUseCase().id
+        _navigationEvent.tryEmit(HomeScreenNavigationEvent.GoToUserDetails(userId))
     }
 
     private suspend fun loadUserSession() {

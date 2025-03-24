@@ -4,6 +4,7 @@ import com.example.data.dto.PublicationDTO
 import com.example.data.request.CreatePublicationRequest
 import com.example.domain.constant.User
 import com.example.domain.helper.Clock
+import com.example.domain.models.UserAddress
 import com.example.domain.models.UserPreview
 import kotlinx.coroutines.delay
 import java.util.UUID
@@ -25,7 +26,7 @@ internal class FakeRemoteBackEndImpl(
                 userId = User.USER_ID,
                 name = User.USERNAME,
                 pictureUri = User.PICTURE,
-                address = UserPreview.Address(
+                address = UserAddress(
                     city = "Toulouse",
                     country = "France"
                 )
@@ -45,7 +46,7 @@ internal class FakeRemoteBackEndImpl(
                     userId = UUID.randomUUID().toString(),
                     name = "Bobby",
                     pictureUri = "",
-                    address = UserPreview.Address(
+                    address = UserAddress(
                         city = "Paris",
                         country = "France"
                     )
@@ -59,7 +60,7 @@ internal class FakeRemoteBackEndImpl(
                     userId = UUID.randomUUID().toString(),
                     name = "King",
                     pictureUri = "",
-                    address = UserPreview.Address(
+                    address = UserAddress(
                         city = "Bruxelles",
                         country = "Belgique"
                     )
@@ -73,7 +74,7 @@ internal class FakeRemoteBackEndImpl(
                     userId = UUID.randomUUID().toString(),
                     name = "Doudou",
                     pictureUri = "",
-                    address = UserPreview.Address(
+                    address = UserAddress(
                         city = "Bordeaux",
                         country = "France"
                     )

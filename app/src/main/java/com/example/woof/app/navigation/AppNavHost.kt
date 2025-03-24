@@ -15,7 +15,11 @@ fun AppNavHost(navController: NavHostController) {
         startDestination = Route.Home
     ) {
         composable<Route.Home> {
-            HomeScreenRoot()
+            HomeScreenRoot(
+                goToUserDetails = {
+                    // TODO
+                }
+            )
         }
         composable<Route.Camera> {
             CameraScreenRoot(

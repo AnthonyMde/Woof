@@ -1,5 +1,6 @@
 package com.example.ui.features.home.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,11 +17,13 @@ import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import com.example.domain.models.UserSession
 import com.example.ui.R
+import com.example.ui.features.home.HomeScreenAction
 import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun HomeHeaderView(
     userSession: UserSession,
+    onAction: (HomeScreenAction) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -40,6 +43,9 @@ fun HomeHeaderView(
             modifier = Modifier
                 .size(LocalDimensions.current.iconLarge)
                 .clip(CircleShape)
+                .clickable {
+                    onAction(HomeScreenAction.OnMyProfileClicked)
+                }
         )
     }
 }
