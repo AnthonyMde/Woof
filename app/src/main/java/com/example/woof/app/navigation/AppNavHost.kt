@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.example.ui.features.ShopScreen
 import com.example.ui.features.camera.CameraScreenRoot
 import com.example.ui.features.home.HomeScreenRoot
+import com.example.ui.features.profile.ProfileScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -14,10 +15,12 @@ fun AppNavHost(navController: NavHostController) {
         navController = navController,
         startDestination = Route.Home
     ) {
-        composable<Route.Home> {
+        composable<Route.Home>(
+
+        ) {
             HomeScreenRoot(
-                goToUserDetails = {
-                    // TODO
+                goToUserProfile = { id ->
+                    navController.navigate(Route.Profile(id))
                 }
             )
         }
@@ -34,6 +37,16 @@ fun AppNavHost(navController: NavHostController) {
         }
         composable<Route.Shop> {
             ShopScreen()
+        }
+        composable<Route.Profile>(
+            enterTransition = {
+                defaultEnterTransition()
+            },
+            popExitTransition = {
+                defaultPopExitTransition()
+            }
+        ) {
+            ProfileScreen()
         }
     }
 }

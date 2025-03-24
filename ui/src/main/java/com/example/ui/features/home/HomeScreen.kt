@@ -24,7 +24,7 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun HomeScreenRoot(
     viewModel: HomeViewModel = koinViewModel(),
-    goToUserDetails: (String) -> Unit
+    goToUserProfile: (String) -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle(HomeScreenState())
     val scope = rememberCoroutineScope()
@@ -33,7 +33,7 @@ fun HomeScreenRoot(
         scope.launch {
             viewModel.navigationEvent.collectLatest { event ->
                 when (event) {
-                    is HomeScreenNavigationEvent.GoToUserDetails -> goToUserDetails(event.userId)
+                    is HomeScreenNavigationEvent.GoToUserDetails -> goToUserProfile(event.userId)
                 }
             }
         }
