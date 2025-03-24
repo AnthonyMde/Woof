@@ -1,11 +1,13 @@
 package com.example.woof.app.navigation
 
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.util.fastForEach
 import androidx.navigation.NavController
@@ -42,12 +44,15 @@ fun BottomBarView(
                     },
                     icon = {
                         Icon(
-                            imageVector = item.icon,
+                            painter = painterResource(item.icon),
                             contentDescription = stringResource(item.title)
                         )
                     },
                     label = {
-                        Text(stringResource(item.title))
+                        Text(
+                            text = stringResource(item.title),
+                            style = MaterialTheme.typography.labelMedium
+                        )
                     }
                 )
             }

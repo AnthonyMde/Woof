@@ -10,14 +10,14 @@ import androidx.compose.ui.res.stringResource
 import com.example.ui.R
 
 @Composable
-fun ProfileScreen() {
+fun ShopScreen() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
     ) {
         Text(
-            text = stringResource(R.string.navigation_bar_profile_title)
+            text = stringResource(R.string.navigation_bar_shop_title)
         )
     }
 }

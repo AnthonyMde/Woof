@@ -8,5 +8,5 @@ sealed interface Route {
     @Serializable
     data object Camera : Route
     @Serializable
-    data object Profile : Route
+    data object Shop : Route
 }
