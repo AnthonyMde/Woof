@@ -46,7 +46,8 @@ fun PublicationHeaderView(
                 modifier = Modifier
             )
             Text(
-                "Paris, France"
+                "${userPreview.address.city}, ${userPreview.address.country}",
+                style = MaterialTheme.typography.labelMedium
             )
         }
     }

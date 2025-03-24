@@ -24,7 +24,11 @@ internal class FakeRemoteBackEndImpl(
             userPreview = UserPreview(
                 userId = User.USER_ID,
                 name = User.USERNAME,
-                pictureUri = User.PICTURE
+                pictureUri = User.PICTURE,
+                address = UserPreview.Address(
+                    city = "Toulouse",
+                    country = "France"
+                )
             ),
             imageUriString = request.imageUriString,
             timestamp = now
@@ -40,7 +44,11 @@ internal class FakeRemoteBackEndImpl(
                 userPreview = UserPreview(
                     userId = UUID.randomUUID().toString(),
                     name = "Bobby",
-                    pictureUri = ""
+                    pictureUri = "",
+                    address = UserPreview.Address(
+                        city = "Paris",
+                        country = "France"
+                    )
                 ),
                 imageUriString = "android.resource://com.example.woof/drawable/corgi",
                 timestamp = 1732567800000
@@ -50,7 +58,11 @@ internal class FakeRemoteBackEndImpl(
                 userPreview = UserPreview(
                     userId = UUID.randomUUID().toString(),
                     name = "King",
-                    pictureUri = ""
+                    pictureUri = "",
+                    address = UserPreview.Address(
+                        city = "Bruxelles",
+                        country = "Belgique"
+                    )
                 ),
                 imageUriString = "android.resource://com.example.woof/drawable/cavalier_king",
                 timestamp = 1732777800000
@@ -60,7 +72,11 @@ internal class FakeRemoteBackEndImpl(
                 userPreview = UserPreview(
                     userId = UUID.randomUUID().toString(),
                     name = "Doudou",
-                    pictureUri = ""
+                    pictureUri = "",
+                    address = UserPreview.Address(
+                        city = "Bordeaux",
+                        country = "France"
+                    )
                 ),
                 imageUriString = "android.resource://com.example.woof/drawable/doudou",
                 timestamp = 1730067800000
