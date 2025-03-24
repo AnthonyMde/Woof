@@ -15,7 +15,7 @@
     <!-- CAMERA -->
     <string name="camera_screen_no_permissions_view_title">Please, allow permissions 🙏</string>
     <string name="camera_screen_take_photo_view_button_description">Take a photo</string>
-    <string name="camera_take_photo_view_send_button_title">Send</string>
+    <string name="camera_take_photo_view_send_button_title">Share</string>
     <!-- CAMERA ERRORS -->
     <string name="camera_screen_take_photo_error">Impossible to take a photo.</string>
     <string name="camera_screen_send_photo_error">Impossible to post your photo.</string>
