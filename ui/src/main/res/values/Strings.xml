@@ -12,6 +12,9 @@
     <string name="home_header_view_title">Hello %1$s!</string>
     <string name="home_header_view_profile_picture_description">My profile</string>
 
+    <!-- PUBLICATION -->
+    <string name="publication_header_view_profile_picture_description">User profile picture</string>
+
     <!-- CAMERA -->
     <string name="camera_screen_no_permissions_view_title">Please, allow permissions 🙏</string>
     <string name="camera_take_photo_view_send_button_title">Share</string>

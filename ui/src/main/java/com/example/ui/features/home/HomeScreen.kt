@@ -1,7 +1,9 @@
 package com.example.ui.features.home
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -35,16 +37,25 @@ fun HomeScreen(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        if (state.userSession != null) {
-            HomeHeaderView(
-                userSession = state.userSession,
-                modifier = Modifier.padding(horizontal = LocalDimensions.current.l)
-            )
-        }
-
         LazyColumn {
+            if (state.userSession != null) {
+                item {
+                    HomeHeaderView(
+                        userSession = state.userSession,
+                        modifier = Modifier
+                            .padding(horizontal = LocalDimensions.current.l)
+                            .padding(top = LocalDimensions.current.m)
+                    )
+                }
+            }
+
+            item {
+                Spacer(modifier = Modifier.height(LocalDimensions.current.m))
+            }
+
             items(state.publications) { publication ->
                 PublicationItemView(publication)
+                Spacer(modifier = Modifier.height(LocalDimensions.current.l))
             }
         }
     }
