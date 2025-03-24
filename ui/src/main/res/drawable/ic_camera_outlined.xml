@@ -1,5 +1,9 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android" android:autoMirrored="true" android:height="24dp" android:viewportHeight="960" android:viewportWidth="960" android:width="24dp">
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:autoMirrored="true" android:height="24dp" android:viewportHeight="24" android:viewportWidth="25" android:width="25dp">
       
-    <path android:fillColor="#5f6368" android:pathData="M456,360h320q-27,-69 -82.5,-118.5T566,172L456,360ZM364,440 L524,164q-11,-2 -22,-3t-22,-1q-66,0 -123,25t-101,67l108,188ZM170,560h218L228,284q-32,41 -50,90.5T160,480q0,21 2.5,40.5T170,560ZM394,788 L502,600L184,600q27,69 82.5,118.5T394,788ZM480,800q66,0 123,-25t101,-67L596,520 436,796q11,2 21.5,3t22.5,1ZM732,676q32,-41 50,-90.5T800,480q0,-21 -2.5,-40.5T790,400L572,400l160,276ZM480,480ZM480,880q-82,0 -155,-31.5t-127.5,-86Q143,708 111.5,635T80,480q0,-83 31.5,-155.5t86,-127Q252,143 325,111.5T480,80q83,0 155.5,31.5t127,86q54.5,54.5 86,127T880,480q0,82 -31.5,155t-86,127.5q-54.5,54.5 -127,86T480,880Z"/>
+    <path android:fillColor="#00000000" android:pathData="M7.26,22H17.74C20.5,22 21.6,20.31 21.73,18.25L22.25,9.99C22.39,7.83 20.67,6 18.5,6C17.89,6 17.33,5.65 17.05,5.11L16.33,3.66C15.87,2.75 14.67,2 13.65,2H11.36C10.33,2 9.13,2.75 8.67,3.66L7.95,5.11C7.67,5.65 7.11,6 6.5,6C4.33,6 2.61,7.83 2.75,9.99L3.27,18.25C3.39,20.31 4.5,22 7.26,22Z" android:strokeColor="#242529" android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="1.5"/>
+      
+    <path android:fillColor="#00000000" android:pathData="M11,8H14" android:strokeColor="#242529" android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="1.5"/>
+      
+    <path android:fillColor="#00000000" android:pathData="M12.5,18C14.29,18 15.75,16.54 15.75,14.75C15.75,12.96 14.29,11.5 12.5,11.5C10.71,11.5 9.25,12.96 9.25,14.75C9.25,16.54 10.71,18 12.5,18Z" android:strokeColor="#242529" android:strokeLineCap="round" android:strokeLineJoin="round" android:strokeWidth="1.5"/>
     
 </vector>
