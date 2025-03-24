@@ -11,14 +11,13 @@ class GetPublicationsUseCase(
 ) {
     operator fun invoke(): Flow<Resource<List<Publication>>> = flow {
         emit(Resource.Loading())
-        val result = when (val resource = publicationRepository.getPublications()) {
-            is Resource.Success<List<Publication>> -> {
-                val reversed = resource.data?.reversed()
-                Resource.Success(reversed)
-            }
-            else -> resource
-        }
 
-        emit(result)
+        try {
+            val publications = publicationRepository.getPublications()
+            val reversed = publications.reversed()
+            emit(Resource.Success(reversed))
+        } catch (e: Exception) {
+            emit(Resource.Error(e))
+        }
     }
 }

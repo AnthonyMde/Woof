@@ -2,16 +2,27 @@ package com.example.ui.features.camera
 
 import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.domain.models.Resource
+import com.example.domain.usecase.GetUserSessionUseCase
+import com.example.domain.usecase.PostPublicationUseCase
 import com.example.ui.R
 import com.example.ui.helper.CameraControlHelper
 import com.example.ui.helper.FileHelper
 import com.example.ui.helper.PermissionsHelper
+import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class CameraViewModel(
+    private val getUserSessionUseCase: GetUserSessionUseCase,
+    private val postPublicationUseCase: PostPublicationUseCase,
     private val permissionsHelper: PermissionsHelper,
     private val fileHelper: FileHelper
 ) : ViewModel() {
@@ -21,6 +32,12 @@ class CameraViewModel(
             it.copy(hasCameraPermission = permissionsHelper.hasCameraPermission())
         }
     }
+    private val _navigationEvent = MutableSharedFlow<CameraScreenNavigationEvent>(
+        extraBufferCapacity = 1,
+        replay = 0,
+        onBufferOverflow = BufferOverflow.DROP_LATEST
+    )
+    val navigationEvent = _navigationEvent.asSharedFlow()
 
     fun onAction(action: CameraScreenAction) {
         when (action) {
@@ -43,8 +60,37 @@ class CameraViewModel(
                 }
             }
 
-            CameraScreenAction.OnPhotoValidated -> {
-                // TODO
+            CameraScreenAction.OnPhotoValidated -> postPublication()
+        }
+    }
+
+    private fun postPublication() = viewModelScope.launch {
+        val session = getUserSessionUseCase()
+        val imageUriString = _state.value.selectedPhotoPath
+        if (imageUriString != null) {
+            postPublicationUseCase(
+                userId = session.id,
+                imageUriString = imageUriString
+            ).collectLatest { result ->
+                when (result) {
+                    is Resource.Error -> {
+                        _state.update {
+                            it.copy(
+                                isSendPhotoLoading = false,
+                                sendPhotoError = R.string.camera_screen_send_photo_error
+                            )
+                        }
+                    }
+
+                    is Resource.Loading -> {
+                        _state.update { it.copy(isSendPhotoLoading = true, sendPhotoError = null) }
+                    }
+
+                    is Resource.Success -> {
+                        _state.update { it.copy(isSendPhotoLoading = false) }
+                        _navigationEvent.tryEmit(CameraScreenNavigationEvent.GoBackHome)
+                    }
+                }
             }
         }
     }

@@ -18,7 +18,15 @@ fun AppNavHost(navController: NavHostController) {
             HomeScreenRoot()
         }
         composable<Route.Camera> {
-            CameraScreenRoot()
+            CameraScreenRoot(
+                goBackHome = {
+                    navController.navigate(Route.Home) {
+                        popUpTo<Route.Home> {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
         composable<Route.Profile> {
             ProfileScreen()

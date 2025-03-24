@@ -1,5 +1,6 @@
 package com.example.ui.features.camera.component
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,7 +29,7 @@ import com.example.ui.theme.LocalDimensions
 fun SelectedPhotoView(
     selectedPhotoPath: String,
     isSendPhotoLoading: Boolean,
-    sendError: String? = null,
+    @StringRes sendError: Int? = null,
     onAction: (CameraScreenAction) -> Unit
 ) {
     Box(modifier = Modifier.fillMaxSize()) {
@@ -74,7 +75,7 @@ fun SelectedPhotoView(
                     .uppercase()
             )
             sendError?.let {
-                ErrorText(it)
+                ErrorText(stringResource(it))
             }
         }
     }

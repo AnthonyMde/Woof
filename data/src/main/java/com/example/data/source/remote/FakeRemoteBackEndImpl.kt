@@ -1,14 +1,36 @@
 package com.example.data.source.remote
 
 import com.example.data.dto.PublicationDTO
+import com.example.data.request.CreatePublicationRequest
+import com.example.domain.constant.User
+import com.example.domain.helper.Clock
 import com.example.domain.models.UserPreview
 import kotlinx.coroutines.delay
 import java.util.UUID
 
-class FakeRemoteBackEndImpl : FakeRemoteBackEnd {
+class FakeRemoteBackEndImpl(
+    private val clock: Clock
+) : FakeRemoteBackEnd {
     override suspend fun getPublications(): List<PublicationDTO> {
-        delay(2000) // Fake request time.
         return getMockedPublicationDTOs()
+    }
+
+    override suspend fun createPublication(request: CreatePublicationRequest): PublicationDTO {
+        delay(FAKED_NETWORK_CALL_TIME_MS)
+
+        val now = clock.nowMillis()
+        val publicationDTO = PublicationDTO(
+            id = UUID.randomUUID().toString(),
+            userPreview = UserPreview(
+                userId = User.USER_ID,
+                name = User.USERNAME,
+                pictureUri = User.PICTURE
+            ),
+            imageUriString = request.imageUriString,
+            timestamp = now
+        )
+
+        return publicationDTO
     }
 
     private fun getMockedPublicationDTOs(): List<PublicationDTO> {
@@ -44,5 +66,9 @@ class FakeRemoteBackEndImpl : FakeRemoteBackEnd {
                 timestamp = 1730067800000
             )
         )
+    }
+
+    companion object {
+        private const val FAKED_NETWORK_CALL_TIME_MS = 2000L
     }
 }

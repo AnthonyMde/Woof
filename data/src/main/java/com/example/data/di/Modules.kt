@@ -16,6 +16,6 @@ val dataModules = module {
     single<UserRepository> { UserRepositoryImpl(get()) }
 
     // SOURCES
-    single<FakeRemoteBackEnd> { FakeRemoteBackEndImpl() }
+    single<FakeRemoteBackEnd> { FakeRemoteBackEndImpl(get()) }
     single<FakeLocalDatabase> { FakeLocalDatabaseImpl() }
 }

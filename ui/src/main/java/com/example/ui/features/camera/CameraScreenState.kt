@@ -7,5 +7,5 @@ data class CameraScreenState(
     val selectedPhotoPath: String? = null,
     @StringRes val takePhotoError: Int? = null,
     val isSendPhotoLoading: Boolean = false,
-    val sendPhotoError: String? = null,
+    @StringRes val sendPhotoError: Int? = null,
 )
