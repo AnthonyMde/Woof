@@ -11,4 +11,7 @@
     <!-- HOME -->
     <string name="home_header_view_title">Hello %1$s!</string>
     <string name="home_header_view_profile_picture_description">My profile</string>
+
+    <!-- CAMERA -->
+    <string name="camera_screen_no_permissions_view_title">Please, allow permissions 🙏</string>
 </resources>
