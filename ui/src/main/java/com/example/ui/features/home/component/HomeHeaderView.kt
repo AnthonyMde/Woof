@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,7 +29,10 @@ fun HomeHeaderView(
         modifier = modifier
             .fillMaxWidth()
     ) {
-        Text(stringResource(R.string.home_header_view_title, userSession.name))
+        Text(
+            text = stringResource(R.string.home_header_view_title, userSession.name),
+            style = MaterialTheme.typography.headlineLarge
+        )
         AsyncImage(
             model = userSession.pictureUriString,
             contentDescription = stringResource(R.string.home_header_view_profile_picture_description),
