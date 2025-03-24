@@ -17,7 +17,9 @@ data class Dimensions(
     val iconExtraLarge: Dp = 56.dp,
 
     val stoke: Dp = 2.dp,
-    val loading: Dp = 20.dp
+    val loading: Dp = 20.dp,
+
+    val corners: Dp = 12.dp
 )
 
 val LocalDimensions = staticCompositionLocalOf { Dimensions() }

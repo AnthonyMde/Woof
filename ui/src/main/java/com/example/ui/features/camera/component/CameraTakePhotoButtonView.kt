@@ -3,7 +3,6 @@ package com.example.ui.features.camera.component
 import androidx.camera.view.LifecycleCameraController
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -31,7 +30,6 @@ fun CameraTakePhotoButtonView(
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .offset(y = -LocalDimensions.current.m)
             .clip(CircleShape)
             .clickable {
                 CameraControlHelper.takePhoto(
@@ -49,7 +47,7 @@ fun CameraTakePhotoButtonView(
     ) {
         Icon(
             painter = painterResource(R.drawable.ic_camera_outlined),
-            contentDescription = stringResource(R.string.camera_screen_take_photo_view_button_description),
+            contentDescription = stringResource(R.string.camera_take_photo_view_capture_description),
             modifier = Modifier.size(LocalDimensions.current.iconExtraLarge)
         )
     }

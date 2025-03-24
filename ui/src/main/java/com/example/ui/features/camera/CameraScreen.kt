@@ -83,7 +83,8 @@ fun CameraScreen(
 
             else -> CameraPreviewView(
                 onAction = onAction,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxSize()
             )
         }
     }
