@@ -73,16 +73,9 @@ fun CameraPreviewView(
                     .align(Alignment.Center)
                     .fillMaxWidth()
             ) {
-                IconButton(
-                    onClick = {
-                        // TODO
-                    }
-                ) {
-                    Icon(
-                        painter = painterResource(R.drawable.ic_gallery_outlined),
-                        contentDescription = stringResource(R.string.camera_take_photo_view_gallery_description)
-                    )
-                }
+                CameraGalleryButtonView(
+                    onAction = onAction
+                )
                 CameraTakePhotoButtonView(
                     controller = cameraController,
                     onAction = onAction,

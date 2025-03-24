@@ -61,6 +61,9 @@ class CameraViewModel(
             }
 
             CameraScreenAction.OnPhotoValidated -> postPublication()
+            is CameraScreenAction.OnPickPhoto -> {
+                _state.update { it.copy(selectedPhotoPath = action.uri.toString()) }
+            }
         }
     }
 
