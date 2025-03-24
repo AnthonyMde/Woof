@@ -11,4 +11,5 @@ sealed interface CameraScreenAction {
     data object OnPhotoValidated : CameraScreenAction
     data object OnClearPhoto : CameraScreenAction
     data class OnPickPhoto(val uri: Uri) : CameraScreenAction
+    data object OnSwitchCamera : CameraScreenAction
 }

@@ -1,5 +1,6 @@
 package com.example.ui.features.camera
 
+import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -64,7 +65,19 @@ class CameraViewModel(
             is CameraScreenAction.OnPickPhoto -> {
                 _state.update { it.copy(selectedPhotoPath = action.uri.toString()) }
             }
+
+            CameraScreenAction.OnSwitchCamera -> onSwitchCamera()
         }
+    }
+
+    private fun onSwitchCamera() {
+        val currentCameraSelector = _state.value.cameraSelector
+        val newCameraSelector = if (currentCameraSelector == CameraSelector.DEFAULT_FRONT_CAMERA) {
+            CameraSelector.DEFAULT_BACK_CAMERA
+        } else {
+            CameraSelector.DEFAULT_FRONT_CAMERA
+        }
+        _state.update { it.copy(cameraSelector = newCameraSelector) }
     }
 
     private fun postPublication() = viewModelScope.launch {

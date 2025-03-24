@@ -1,5 +1,6 @@
 package com.example.ui.features.camera.component
 
+import androidx.camera.core.CameraSelector
 import androidx.camera.view.CameraController
 import androidx.camera.view.LifecycleCameraController
 import androidx.camera.view.PreviewView
@@ -31,8 +32,9 @@ import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun CameraPreviewView(
+    cameraSelector: CameraSelector,
+    onAction: (CameraScreenAction) -> Unit,
     modifier: Modifier = Modifier,
-    onAction: (CameraScreenAction) -> Unit
 ) {
     val lifecycleOwner = LocalLifecycleOwner.current
     val context = LocalContext.current
@@ -56,6 +58,9 @@ fun CameraPreviewView(
                         controller = cameraController
                         cameraController.bindToLifecycle(lifecycleOwner)
                     }
+                },
+                update = {
+                    cameraController.cameraSelector = cameraSelector
                 },
                 modifier = Modifier
                     .fillMaxSize()
@@ -83,7 +88,7 @@ fun CameraPreviewView(
                 )
                 IconButton(
                     onClick = {
-                        // TODO
+                        onAction(CameraScreenAction.OnSwitchCamera)
                     }
                 ) {
                     Icon(
