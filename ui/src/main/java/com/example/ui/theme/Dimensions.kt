@@ -13,13 +13,15 @@ data class Dimensions(
     val xl: Dp = 32.dp,
     val xxl: Dp = 40.dp,
 
+    val iconSmall: Dp = 18.dp,
+    val icon: Dp = 24.dp,
     val iconLarge: Dp = 48.dp,
     val iconExtraLarge: Dp = 56.dp,
 
-    val stoke: Dp = 2.dp,
+    val stroke: Dp = 2.dp,
     val loading: Dp = 20.dp,
 
-    val corners: Dp = 12.dp
+    val corners: Dp = 30.dp
 )
 
 val LocalDimensions = staticCompositionLocalOf { Dimensions() }

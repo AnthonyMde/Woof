@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import com.example.ui.theme.LocalDimensions
@@ -24,8 +25,9 @@ fun LoadingButton(
     enabled: Boolean = true,
     isLoading: Boolean = true,
     label: String,
-    buttonColors: ButtonColors? = null,
-    shrinkToText: Boolean = false
+    style: TextStyle = TextStyle.Default,
+    buttonColors: ButtonColors = ButtonDefaults.buttonColors(),
+    shrinkToText: Boolean = false,
 ) {
     Button(
         onClick = onClick,
@@ -40,17 +42,18 @@ fun LoadingButton(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                     textAlign = TextAlign.Center,
+                    style = style,
                     modifier = getTextModifier(modifier, shrinkToText)
                 )
                 if (isLoading) CircularProgressIndicator(
                     color = MaterialTheme.colorScheme.onPrimary,
-                    strokeWidth = LocalDimensions.current.stoke,
+                    strokeWidth = LocalDimensions.current.stroke,
                     modifier = Modifier
                         .size(LocalDimensions.current.loading)
                 )
             }
         },
-        colors = buttonColors ?: ButtonDefaults.buttonColors(),
+        colors = buttonColors,
         modifier = modifier
     )
 }

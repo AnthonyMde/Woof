@@ -46,7 +46,7 @@ fun CameraTakePhotoButtonView(
             .padding(LocalDimensions.current.s)
     ) {
         Icon(
-            painter = painterResource(R.drawable.ic_camera_outlined),
+            painter = painterResource(R.drawable.ic_take_photo),
             contentDescription = stringResource(R.string.camera_take_photo_view_capture_description),
             modifier = Modifier.size(LocalDimensions.current.iconExtraLarge)
         )
