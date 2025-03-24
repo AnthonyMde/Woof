@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.woof.ui.theme.screens.CameraScreen
-import com.example.woof.ui.theme.screens.HomeScreen
-import com.example.woof.ui.theme.screens.ProfileScreen
+import com.example.ui.screens.CameraScreen
+import com.example.ui.screens.HomeScreen
+import com.example.ui.screens.ProfileScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
