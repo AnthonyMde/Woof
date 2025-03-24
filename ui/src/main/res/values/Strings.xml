@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- COMMON ERRORS -->
+    <string name="unknown_error">Oops, something went wrong.</string>
+
+    <!-- BOTTOM BAR -->
     <string name="navigation_bar_home_title">Home</string>
     <string name="navigation_bar_camera_title">Camera</string>
     <string name="navigation_bar_profile_title">Profile</string>
+
+    <!-- HOME -->
+    <string name="home_header_view_title">Hello %1$s!</string>
+    <string name="home_header_view_profile_picture_description">My profile</string>
 </resources>

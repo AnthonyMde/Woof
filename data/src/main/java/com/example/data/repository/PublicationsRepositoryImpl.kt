@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.data.repository
 
 import com.example.data.entity.PublicationEntity
 import com.example.data.source.local.FakeLocalDatabase

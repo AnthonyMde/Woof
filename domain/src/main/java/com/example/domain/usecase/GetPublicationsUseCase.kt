@@ -7,11 +7,11 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class GetPublicationsUseCase(
-    private val repository: PublicationsRepository
+    private val publicationRepository: PublicationsRepository
 ) {
     operator fun invoke(): Flow<Resource<List<Publication>>> = flow {
         emit(Resource.Loading())
-        val result = when (val resource = repository.getPublications()) {
+        val result = when (val resource = publicationRepository.getPublications()) {
             is Resource.Success<List<Publication>> -> {
                 val reversed = resource.data?.reversed()
                 Resource.Success(reversed)
