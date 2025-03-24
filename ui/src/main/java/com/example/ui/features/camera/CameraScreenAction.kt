@@ -7,4 +7,6 @@ sealed interface CameraScreenAction {
     data object OnCameraPermissionGranted : CameraScreenAction
     data class OnTakePhoto(val image: ImageProxy) : CameraScreenAction
     data class OnTakePhotoError(val error: ImageCaptureException) : CameraScreenAction
+    data object OnPhotoValidated : CameraScreenAction
+    data object OnClearPhoto : CameraScreenAction
 }

@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.ui.features.camera.component.CameraNoPermissionsView
 import com.example.ui.features.camera.component.CameraPreviewView
+import com.example.ui.features.camera.component.SelectedPhotoView
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -55,6 +56,15 @@ fun CameraScreen(
         when {
             state.hasCameraPermission != true -> {
                 CameraNoPermissionsView(modifier = Modifier.fillMaxSize())
+            }
+
+            state.selectedPhotoPath != null -> {
+                SelectedPhotoView(
+                    isSendPhotoLoading = state.isSendPhotoLoading,
+                    selectedPhotoPath = state.selectedPhotoPath,
+                    sendError = state.sendPhotoError,
+                    onAction = onAction
+                )
             }
 
             else -> CameraPreviewView(
