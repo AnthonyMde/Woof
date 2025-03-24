@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.ui.features.home.component.HomeHeaderView
 import com.example.ui.features.home.component.PublicationItemView
+import com.example.ui.theme.LocalDimensions
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -38,7 +39,7 @@ fun HomeScreen(
         if (state.userSession != null) {
             HomeHeaderView(
                 userSession = state.userSession,
-                modifier = Modifier.padding(horizontal = 24.dp)
+                modifier = Modifier.padding(horizontal = LocalDimensions.current.l)
             )
         }
 

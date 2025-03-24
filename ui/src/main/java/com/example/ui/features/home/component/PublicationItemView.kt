@@ -12,15 +12,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.domain.models.Publication
+import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun PublicationItemView(
     publication: Publication
 ) {
-    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    Column(verticalArrangement = Arrangement.spacedBy(LocalDimensions.current.s)) {
         Text(
             publication.userPreview.name,
-            modifier = Modifier.padding(horizontal = 24.dp)
+            modifier = Modifier.padding(horizontal = LocalDimensions.current.l)
         )
         AsyncImage(
             model = publication.imageUriString,

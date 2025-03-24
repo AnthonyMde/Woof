@@ -12,10 +12,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.domain.models.UserSession
 import com.example.ui.R
+import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun HomeHeaderView(
@@ -34,7 +34,7 @@ fun HomeHeaderView(
             contentDescription = stringResource(R.string.home_header_view_profile_picture_description),
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .size(48.dp)
+                .size(LocalDimensions.current.iconLarge)
                 .clip(CircleShape)
         )
     }
