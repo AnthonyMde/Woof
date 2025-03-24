@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.ui.screens.CameraScreen
-import com.example.ui.screens.HomeScreen
-import com.example.ui.screens.ProfileScreen
+import com.example.ui.features.CameraScreen
+import com.example.ui.features.ProfileScreen
+import com.example.ui.features.home.HomeScreenRoot
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -15,7 +15,7 @@ fun AppNavHost(navController: NavHostController) {
         startDestination = Route.Home
     ) {
         composable<Route.Home> {
-            HomeScreen()
+            HomeScreenRoot()
         }
         composable<Route.Camera> {
             CameraScreen()

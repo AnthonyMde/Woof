@@ -1,4 +1,4 @@
-package com.example.ui.screens
+package com.example.ui.features
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,14 +10,14 @@ import androidx.compose.ui.res.stringResource
 import com.example.ui.R
 
 @Composable
-fun HomeScreen() {
+fun ProfileScreen() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
     ) {
         Text(
-            text = stringResource(R.string.navigation_bar_home_title)
+            text = stringResource(R.string.navigation_bar_profile_title)
         )
     }
 }

@@ -34,6 +34,7 @@ android {
 
 dependencies {
     api(libs.koin.core)
+    implementation(libs.kotlinx.coroutines.core)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

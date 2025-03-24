@@ -1,4 +1,4 @@
-package com.example.ui.screens
+package com.example.ui.features
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
