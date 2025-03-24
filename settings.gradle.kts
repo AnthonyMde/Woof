@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Woof"
 include(":app")
- 
+include(":domain")
+include(":ui")
+include(":data")
