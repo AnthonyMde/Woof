@@ -48,6 +48,11 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    implementation(libs.androidx.camerax.camera2)
+    implementation(libs.androidx.camerax.view)
+    implementation(libs.androidx.camerax.lifecycle)
+    implementation(libs.androidx.camerax.extensions)
+
     api(libs.koin.core)
     implementation(libs.koin.compose)
     implementation(libs.koin.compose.viewmodel)
