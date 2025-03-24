@@ -4,7 +4,7 @@ import com.example.domain.models.Publication
 import com.example.domain.models.UserPreview
 
 // Simulates DTO from back-end.
-data class PublicationDTO(
+internal data class PublicationDTO(
     val id: String,
     val userPreview: UserPreview,
     val imageUriString: String,

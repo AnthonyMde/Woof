@@ -4,7 +4,7 @@ import com.example.domain.models.Publication
 import com.example.domain.models.UserPreview
 
 // Simulates entity for Room for example
-data class PublicationEntity(
+internal data class PublicationEntity(
     val id: String,
     val userPreview: UserPreview,
     val imageUriString: String,

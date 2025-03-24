@@ -7,7 +7,7 @@ import com.example.data.source.remote.FakeRemoteBackEnd
 import com.example.domain.models.Publication
 import com.example.domain.repository.PublicationsRepository
 
-class PublicationsRepositoryImpl(
+internal class PublicationsRepositoryImpl(
     private val fakeRemoteBackEnd: FakeRemoteBackEnd,
     private val fakeLocalDatabase: FakeLocalDatabase
 ) : PublicationsRepository {

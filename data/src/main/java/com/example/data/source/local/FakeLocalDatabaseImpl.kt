@@ -4,7 +4,7 @@ import com.example.data.entity.PublicationEntity
 import com.example.data.entity.UserSessionEntity
 import com.example.domain.constant.User
 
-class FakeLocalDatabaseImpl : FakeLocalDatabase {
+internal class FakeLocalDatabaseImpl : FakeLocalDatabase {
     private val savedPublications = mutableListOf<PublicationEntity>()
 
     override suspend fun savePublications(vararg publication: PublicationEntity) {

@@ -8,7 +8,7 @@ import com.example.domain.models.UserPreview
 import kotlinx.coroutines.delay
 import java.util.UUID
 
-class FakeRemoteBackEndImpl(
+internal class FakeRemoteBackEndImpl(
     private val clock: Clock
 ) : FakeRemoteBackEnd {
     override suspend fun getPublications(): List<PublicationDTO> {
