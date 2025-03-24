@@ -57,7 +57,10 @@ fun CameraScreen(
                 CameraNoPermissionsView(modifier = Modifier.fillMaxSize())
             }
 
-            else -> CameraPreviewView(modifier = Modifier.fillMaxSize())
+            else -> CameraPreviewView(
+                onAction = onAction,
+                modifier = Modifier.fillMaxSize()
+            )
         }
     }
 }

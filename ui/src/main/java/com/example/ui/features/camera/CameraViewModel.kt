@@ -24,6 +24,13 @@ class CameraViewModel(
                     it.copy(hasCameraPermission = true)
                 }
             }
+
+            is CameraScreenAction.OnTakePhoto -> {
+                // TODO
+            }
+            is CameraScreenAction.OnTakePhotoError -> {
+                // TODO
+            }
         }
     }
 }
