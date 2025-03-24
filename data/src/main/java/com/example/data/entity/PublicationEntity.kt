@@ -16,4 +16,13 @@ data class PublicationEntity(
         imageUriString = imageUriString,
         timestamp = timestamp
     )
+
+    companion object {
+        fun from(publication: Publication) = PublicationEntity(
+            id = publication.id,
+            userPreview = publication.userPreview,
+            imageUriString = publication.imageUriString,
+            timestamp = publication.timestamp
+        )
+    }
 }
