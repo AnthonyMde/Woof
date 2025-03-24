@@ -1,10 +1,11 @@
-package com.example.woof.app.navigation
+package com.example.woof.app.navigation.navigationbar
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.ui.R
+import com.example.woof.app.navigation.Route
 
-enum class BottomBarItem(
+enum class NavigationBarItem(
     @StringRes val title: Int,
     @DrawableRes val icon: Int,
     val route: Route

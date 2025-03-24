@@ -1,4 +1,4 @@
-package com.example.woof.app.navigation
+package com.example.woof.app.navigation.navigationbar
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -14,19 +14,19 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 
 @Composable
-fun BottomBarView(
+fun NavigationBarView(
     navController: NavController
 ) {
     val currentBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = currentBackStackEntry?.destination?.route
 
-    val showBottomBar: Boolean = BottomBarItem.entries
+    val showBottomBar: Boolean = NavigationBarItem.entries
         .map { it.route::class.qualifiedName }
         .contains(currentRoute)
 
     if (showBottomBar) {
         NavigationBar {
-            BottomBarItem.entries.fastForEach { item ->
+            NavigationBarItem.entries.fastForEach { item ->
                 val isSelected = currentRoute == item.route::class.qualifiedName
                 NavigationBarItem(
                     selected = isSelected,

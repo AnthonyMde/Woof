@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.woof.app.navigation.AppNavHost
-import com.example.woof.app.navigation.BottomBarView
+import com.example.woof.app.navigation.navigationbar.NavigationBarView
 
 @Composable
 fun MainScreen() {
@@ -16,7 +16,7 @@ fun MainScreen() {
 
     Scaffold(
         bottomBar = {
-            BottomBarView(navController)
+            NavigationBarView(navController)
         },
         modifier = Modifier.fillMaxSize()
     ) { innerPadding ->
