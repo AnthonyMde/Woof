@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
-import com.example.domain.models.UserProfile
+import com.example.domain.models.user.UserProfile
 import com.example.ui.features.profile.ProfileScreenAction
 import com.example.ui.theme.LocalDimensions
 

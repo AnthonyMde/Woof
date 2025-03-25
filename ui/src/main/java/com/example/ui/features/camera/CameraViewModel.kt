@@ -4,8 +4,8 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.models.PostPublicationModel
-import com.example.domain.models.Publication
+import com.example.domain.models.publication.PostPublicationModel
+import com.example.domain.models.publication.Publication
 import com.example.domain.models.Resource
 import com.example.domain.usecase.GeneratePetTalkUseCase
 import com.example.domain.usecase.user.GetUserSessionUseCase

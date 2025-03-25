@@ -1,9 +1,9 @@
 package com.example.domain.repository
 
-import com.example.domain.models.Comment
-import com.example.domain.models.PostCommentModel
-import com.example.domain.models.PostPublicationModel
-import com.example.domain.models.Publication
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.comment.PostCommentModel
+import com.example.domain.models.publication.PostPublicationModel
+import com.example.domain.models.publication.Publication
 
 interface PublicationsRepository {
     suspend fun getPublications(): List<Publication>

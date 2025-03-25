@@ -3,9 +3,9 @@ package com.example.data.repository
 import com.example.data.entity.PublicationEntity
 import com.example.data.source.local.FakeLocalDatabase
 import com.example.data.source.remote.FakeRemoteBackEnd
-import com.example.domain.models.Publication
-import com.example.domain.models.UserProfile
-import com.example.domain.models.UserSession
+import com.example.domain.models.publication.Publication
+import com.example.domain.models.user.UserProfile
+import com.example.domain.models.user.UserSession
 import com.example.domain.repository.UserRepository
 
 internal class UserRepositoryImpl(

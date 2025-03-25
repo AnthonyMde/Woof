@@ -5,11 +5,11 @@ import com.example.data.request.CreatePublicationRequest
 import com.example.domain.constant.User
 import com.example.domain.error.DomainException
 import com.example.domain.helper.Clock
-import com.example.domain.models.Comment
-import com.example.domain.models.PostCommentModel
-import com.example.domain.models.UserAddress
-import com.example.domain.models.UserPreview
-import com.example.domain.models.UserProfile
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.comment.PostCommentModel
+import com.example.domain.models.user.UserAddress
+import com.example.domain.models.user.UserPreview
+import com.example.domain.models.user.UserProfile
 import kotlinx.coroutines.delay
 import java.util.UUID
 

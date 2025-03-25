@@ -1,8 +1,8 @@
 package com.example.data.entity
 
-import com.example.domain.models.Comment
-import com.example.domain.models.Publication
-import com.example.domain.models.UserPreview
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.publication.Publication
+import com.example.domain.models.user.UserPreview
 
 // Simulates entity for Room for example
 internal data class PublicationEntity(

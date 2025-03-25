@@ -15,7 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
-import com.example.domain.models.UserSession
+import com.example.domain.models.user.UserSession
 import com.example.ui.R
 import com.example.ui.features.home.HomeScreenAction
 import com.example.ui.theme.LocalDimensions

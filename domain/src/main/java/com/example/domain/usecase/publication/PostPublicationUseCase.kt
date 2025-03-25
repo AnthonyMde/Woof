@@ -1,6 +1,6 @@
 package com.example.domain.usecase.publication
 
-import com.example.domain.models.PostPublicationModel
+import com.example.domain.models.publication.PostPublicationModel
 import com.example.domain.models.Resource
 import com.example.domain.repository.PublicationsRepository
 import kotlinx.coroutines.flow.Flow

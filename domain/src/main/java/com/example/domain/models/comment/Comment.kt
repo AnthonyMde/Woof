@@ -1,4 +1,4 @@
-package com.example.domain.models
+package com.example.domain.models.comment
 
 data class Comment(
     val userInfo: UserInfo,

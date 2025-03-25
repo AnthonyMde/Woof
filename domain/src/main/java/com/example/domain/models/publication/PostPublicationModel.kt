@@ -1,4 +1,4 @@
-package com.example.domain.models
+package com.example.domain.models.publication
 
 data class PostPublicationModel(
     val userId: String,

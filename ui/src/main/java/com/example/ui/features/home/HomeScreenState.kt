@@ -1,7 +1,7 @@
 package com.example.ui.features.home
 
 import androidx.annotation.StringRes
-import com.example.domain.models.UserSession
+import com.example.domain.models.user.UserSession
 import com.example.ui.features.home.model.PublicationUIModel
 
 data class HomeScreenState(

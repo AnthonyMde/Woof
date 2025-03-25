@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
-import com.example.domain.models.Comment
+import com.example.domain.models.comment.Comment
 import com.example.ui.helper.TimeHelper
 import com.example.ui.theme.LocalDimensions
 

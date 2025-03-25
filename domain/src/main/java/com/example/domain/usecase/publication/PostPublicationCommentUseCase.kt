@@ -1,6 +1,6 @@
 package com.example.domain.usecase.publication
 
-import com.example.domain.models.PostCommentModel
+import com.example.domain.models.comment.PostCommentModel
 import com.example.domain.models.Resource
 import com.example.domain.repository.PublicationsRepository
 import com.example.domain.repository.UserRepository

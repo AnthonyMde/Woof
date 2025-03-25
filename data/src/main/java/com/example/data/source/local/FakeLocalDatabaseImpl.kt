@@ -3,7 +3,7 @@ package com.example.data.source.local
 import com.example.data.entity.PublicationEntity
 import com.example.data.entity.UserSessionEntity
 import com.example.domain.constant.User
-import com.example.domain.models.Comment
+import com.example.domain.models.comment.Comment
 
 internal class FakeLocalDatabaseImpl : FakeLocalDatabase {
     private val savedPublications = mutableListOf<PublicationEntity>()

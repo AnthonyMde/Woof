@@ -4,10 +4,10 @@ import com.example.data.entity.PublicationEntity
 import com.example.data.request.CreatePublicationRequest
 import com.example.data.source.local.FakeLocalDatabase
 import com.example.data.source.remote.FakeRemoteBackEnd
-import com.example.domain.models.Comment
-import com.example.domain.models.PostCommentModel
-import com.example.domain.models.PostPublicationModel
-import com.example.domain.models.Publication
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.comment.PostCommentModel
+import com.example.domain.models.publication.PostPublicationModel
+import com.example.domain.models.publication.Publication
 import com.example.domain.repository.PublicationsRepository
 
 internal class PublicationsRepositoryImpl(

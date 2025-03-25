@@ -1,8 +1,8 @@
 package com.example.data.dto
 
-import com.example.domain.models.Comment
-import com.example.domain.models.Publication
-import com.example.domain.models.UserPreview
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.publication.Publication
+import com.example.domain.models.user.UserPreview
 
 // Simulates DTO from back-end.
 internal data class PublicationDTO(

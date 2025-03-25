@@ -1,4 +1,7 @@
-package com.example.domain.models
+package com.example.domain.models.publication
+
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.user.UserPreview
 
 data class Publication(
     val id: String,

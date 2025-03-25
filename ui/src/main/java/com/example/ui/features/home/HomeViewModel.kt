@@ -2,7 +2,7 @@ package com.example.ui.features.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.domain.models.Publication
+import com.example.domain.models.publication.Publication
 import com.example.domain.models.Resource
 import com.example.domain.usecase.publication.GetPublicationsUseCase
 import com.example.domain.usecase.user.GetUserSessionUseCase

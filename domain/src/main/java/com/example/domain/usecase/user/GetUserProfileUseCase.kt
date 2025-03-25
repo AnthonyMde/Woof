@@ -2,7 +2,7 @@ package com.example.domain.usecase.user
 
 import com.example.domain.error.DomainException
 import com.example.domain.models.Resource
-import com.example.domain.models.UserProfile
+import com.example.domain.models.user.UserProfile
 import com.example.domain.repository.UserRepository
 
 class GetUserProfileUseCase(

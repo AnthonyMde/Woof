@@ -15,7 +15,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.domain.models.UserProfile
+import com.example.domain.models.user.UserProfile
 import com.example.ui.R
 import com.example.ui.component.OverlayIconButton
 import com.example.ui.features.profile.ProfileScreenAction

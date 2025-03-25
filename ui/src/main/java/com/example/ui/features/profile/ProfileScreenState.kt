@@ -1,7 +1,7 @@
 package com.example.ui.features.profile
 
 import androidx.annotation.StringRes
-import com.example.domain.models.UserProfile
+import com.example.domain.models.user.UserProfile
 
 sealed interface ProfileScreenState {
     data class Success(val profile: UserProfile): ProfileScreenState

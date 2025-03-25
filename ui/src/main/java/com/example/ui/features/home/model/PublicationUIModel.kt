@@ -3,9 +3,9 @@ package com.example.ui.features.home.model
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.example.domain.models.Comment
-import com.example.domain.models.Publication
-import com.example.domain.models.UserPreview
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.publication.Publication
+import com.example.domain.models.user.UserPreview
 
 data class PublicationUIModel(
     val id: String,

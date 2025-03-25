@@ -2,10 +2,10 @@ package com.example.data.source.remote
 
 import com.example.data.dto.PublicationDTO
 import com.example.domain.constant.User
-import com.example.domain.models.Comment
-import com.example.domain.models.Publication
-import com.example.domain.models.UserAddress
-import com.example.domain.models.UserPreview
+import com.example.domain.models.comment.Comment
+import com.example.domain.models.publication.Publication
+import com.example.domain.models.user.UserAddress
+import com.example.domain.models.user.UserPreview
 import java.util.UUID
 
 internal var mockedPublications = listOf(

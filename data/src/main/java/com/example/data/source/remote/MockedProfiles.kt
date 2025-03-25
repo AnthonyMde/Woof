@@ -1,8 +1,8 @@
 package com.example.data.source.remote
 
 import com.example.domain.constant.User
-import com.example.domain.models.UserAddress
-import com.example.domain.models.UserProfile
+import com.example.domain.models.user.UserAddress
+import com.example.domain.models.user.UserProfile
 
 internal val mockedProfiles = listOf(
     UserProfile(

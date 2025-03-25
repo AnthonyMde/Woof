@@ -1,6 +1,6 @@
 package com.example.data.entity
 
-import com.example.domain.models.UserSession
+import com.example.domain.models.user.UserSession
 
 // Entity is equal to UserSession
 // Only for showcase purpose of clean data models separation.

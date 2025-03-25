@@ -2,8 +2,8 @@ package com.example.data.source.remote
 
 import com.example.data.dto.PublicationDTO
 import com.example.data.request.CreatePublicationRequest
-import com.example.domain.models.PostCommentModel
-import com.example.domain.models.UserProfile
+import com.example.domain.models.comment.PostCommentModel
+import com.example.domain.models.user.UserProfile
 
 internal interface FakeRemoteBackEnd {
     suspend fun getPublications(): List<PublicationDTO>

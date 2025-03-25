@@ -1,8 +1,8 @@
 package com.example.domain.repository
 
-import com.example.domain.models.Publication
-import com.example.domain.models.UserProfile
-import com.example.domain.models.UserSession
+import com.example.domain.models.publication.Publication
+import com.example.domain.models.user.UserProfile
+import com.example.domain.models.user.UserSession
 
 interface UserRepository {
     suspend fun getUserSession(): UserSession

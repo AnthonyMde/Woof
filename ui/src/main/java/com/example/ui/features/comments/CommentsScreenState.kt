@@ -1,7 +1,7 @@
 package com.example.ui.features.comments
 
 import androidx.annotation.StringRes
-import com.example.domain.models.Comment
+import com.example.domain.models.comment.Comment
 
 data class CommentsScreenState(
     val comments: List<Comment> = emptyList(),
