@@ -5,11 +5,13 @@ import com.example.data.request.CreatePublicationRequest
 import com.example.data.source.remote.mock.mockedPetTalks
 import com.example.data.source.remote.mock.mockedProfiles
 import com.example.data.source.remote.mock.mockedPublications
+import com.example.data.source.remote.mock.mockedShopProducts
 import com.example.domain.constant.User
 import com.example.domain.error.DomainException
 import com.example.domain.helper.Clock
 import com.example.domain.models.comment.Comment
 import com.example.domain.models.comment.PostCommentModel
+import com.example.domain.models.shop.ShopProduct
 import com.example.domain.models.user.UserAddress
 import com.example.domain.models.user.UserPreview
 import com.example.domain.models.user.UserProfile
@@ -106,6 +108,10 @@ internal class FakeRemoteBackEndImpl(
         delay(QUICK_FAKED_NETWORK_CALL_TIME_MS)
 
         return mockedPetTalks.random()
+    }
+
+    override suspend fun getShopProducts(): List<ShopProduct> {
+        return mockedShopProducts
     }
 
     private fun getMockedPublicationDTOs(): List<PublicationDTO> {
