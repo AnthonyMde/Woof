@@ -36,7 +36,7 @@ fun ShopProductItemView(
                 .size(160.dp)
                 .clip(RoundedCornerShape(LocalDimensions.current.corners))
                 .clickable {
-                    onAction(ShopScreenAction.OnProductClicked)
+                    onAction(ShopScreenAction.OnProductClicked(product.affiliatedLink))
                 }
                 .background(MaterialTheme.colorScheme.surface)
 

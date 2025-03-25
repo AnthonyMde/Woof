@@ -9,17 +9,15 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.domain.models.shop.ShopProduct
-import com.example.ui.R
 import com.example.ui.features.shop.component.ShopProductItemView
 import com.example.ui.features.shop.component.ShopSearchView
+import com.example.ui.helper.openChromeTab
 import com.example.ui.theme.LocalDimensions
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -28,10 +26,17 @@ fun ShopScreenRoot(
     viewModel: ShopViewModel = koinViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle(ShopScreenState())
+    val context = LocalContext.current
 
     ShopScreen(
         state = state,
         onAction = { action ->
+            when (action) {
+                is ShopScreenAction.OnProductClicked -> {
+                    openChromeTab(context, action.productUri)
+                }
+                is ShopScreenAction.OnSearchInputChanged -> TODO()
+            }
             viewModel.onAction(action)
         }
     )

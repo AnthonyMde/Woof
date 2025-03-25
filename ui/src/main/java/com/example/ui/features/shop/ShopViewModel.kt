@@ -22,13 +22,10 @@ class ShopViewModel(
 
     fun onAction(action: ShopScreenAction) {
         when (action) {
-            ShopScreenAction.OnProductClicked -> {
-                // TODO
-            }
-
             is ShopScreenAction.OnSearchInputChanged -> {
                 // TODO
             }
+            else -> {}
         }
     }
 

@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation)
+    implementation(libs.androidx.browser)
 
     implementation(libs.androidx.camerax.camera2)
     implementation(libs.androidx.camerax.view)
