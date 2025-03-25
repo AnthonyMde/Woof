@@ -2,6 +2,7 @@ package com.example.data.source.remote
 
 import com.example.data.dto.PublicationDTO
 import com.example.data.request.CreatePublicationRequest
+import com.example.domain.models.PostCommentModel
 import com.example.domain.models.UserProfile
 
 internal interface FakeRemoteBackEnd {
@@ -9,4 +10,5 @@ internal interface FakeRemoteBackEnd {
     suspend fun createPublication(request: CreatePublicationRequest): PublicationDTO
     suspend fun getUserProfileById(id: String): UserProfile?
     suspend fun togglePublicationLike(likerId: String, publicationId: String): List<PublicationDTO>
+    suspend fun postPublicationComment(postCommentModel: PostCommentModel): List<PublicationDTO>
 }

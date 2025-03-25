@@ -26,6 +26,8 @@ fun BoxScope.CommentsScreenView(
 
     CommentTextFieldView(
         value = state.userCommentInputValue,
+        isLoading = state.isSendCommentLoading,
+        error = state.userCommentInputError,
         onAction = onAction,
         modifier = Modifier
             .fillMaxWidth()

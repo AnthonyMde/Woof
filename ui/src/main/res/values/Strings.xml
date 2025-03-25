@@ -31,7 +31,9 @@
     <string name="comments_screen_top_bar_title">Comments</string>
     <string name="comments_screen_send_comment_icon_description">Send your comment.</string>
     <string name="comments_screen_comment_input_placeholder">Add a comment…</string>
+    <!-- COMMENTS ERROR -->
     <string name="comments_screen_cannot_load_comments_error">Sorry, something happened while loading comments.</string>
+    <string name="comments_screen_cannot_send_comment_error">Sorry, an error occurred while sending your comment.</string>
 
     <!-- CAMERA -->
     <string name="camera_screen_no_permissions_view_title">Please, allow permissions 🙏</string>

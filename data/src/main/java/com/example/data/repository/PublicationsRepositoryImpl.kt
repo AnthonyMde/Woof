@@ -5,6 +5,7 @@ import com.example.data.request.CreatePublicationRequest
 import com.example.data.source.local.FakeLocalDatabase
 import com.example.data.source.remote.FakeRemoteBackEnd
 import com.example.domain.models.Comment
+import com.example.domain.models.PostCommentModel
 import com.example.domain.models.Publication
 import com.example.domain.repository.PublicationsRepository
 
@@ -34,5 +35,11 @@ internal class PublicationsRepositoryImpl(
 
     override suspend fun getPublicationComments(publicationId: String): List<Comment> {
         return fakeLocalDatabase.getPublicationComments(publicationId)
+    }
+
+    override suspend fun postPublicationComment(postCommentModel: PostCommentModel) {
+        val publications = fakeRemoteBackEnd.postPublicationComment(postCommentModel)
+            .map { it.toPublication() }
+        fakeLocalDatabase.savePublications(*publications.map { PublicationEntity.from(it) }.toTypedArray())
     }
 }

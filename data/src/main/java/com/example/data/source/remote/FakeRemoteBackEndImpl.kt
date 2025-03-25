@@ -3,7 +3,10 @@ package com.example.data.source.remote
 import com.example.data.dto.PublicationDTO
 import com.example.data.request.CreatePublicationRequest
 import com.example.domain.constant.User
+import com.example.domain.error.DomainException
 import com.example.domain.helper.Clock
+import com.example.domain.models.Comment
+import com.example.domain.models.PostCommentModel
 import com.example.domain.models.UserAddress
 import com.example.domain.models.UserPreview
 import com.example.domain.models.UserProfile
@@ -65,11 +68,38 @@ internal class FakeRemoteBackEndImpl(
         return mockedPublications
     }
 
+    override suspend fun postPublicationComment(postCommentModel: PostCommentModel): List<PublicationDTO> {
+        delay(QUICK_FAKED_NETWORK_CALL_TIME_MS)
+
+        val userProfile = getUserProfileById(postCommentModel.userId) ?: throw DomainException.NoProfileFoundError
+        val comment = Comment(
+            userInfo = Comment.UserInfo(
+                id = userProfile.id,
+                name = userProfile.name,
+                pictureUriString = userProfile.picture
+            ),
+            text = postCommentModel.commentText,
+            timestamp = clock.nowMillis()
+        )
+
+        mockedPublications = mockedPublications.map { publication ->
+            if (publication.id != postCommentModel.publicationId) return@map publication
+
+            val updatedComments = publication.comments.toMutableList()
+                .apply { add(comment) }
+
+            publication.copy(comments = updatedComments)
+        }
+
+        return mockedPublications
+    }
+
     private fun getMockedPublicationDTOs(): List<PublicationDTO> {
         return mockedPublications
     }
 
     companion object {
         private const val FAKED_NETWORK_CALL_TIME_MS = 2000L
+        private const val QUICK_FAKED_NETWORK_CALL_TIME_MS = 1000L
     }
 }

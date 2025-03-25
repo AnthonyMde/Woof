@@ -20,7 +20,7 @@ class CommentsViewModel(
     private val getPublicationCommentsUseCase: GetPublicationCommentsUseCase,
     private val postPublicationCommentUseCase: PostPublicationCommentUseCase,
     savedStateHandle: SavedStateHandle
-): ViewModel() {
+) : ViewModel() {
     private val _state = MutableStateFlow(CommentsScreenState())
     val state = _state.asStateFlow().onStart {
         loadComments(publicationId)
@@ -37,37 +37,79 @@ class CommentsViewModel(
         when (action) {
             is CommentsScreenAction.OnSendCommentClicked -> sendComment(action.text)
             is CommentsScreenAction.OnCommentInputValueChanged -> {
-               _state.update { it.copy(userCommentInputValue = action.comment) }
+                _state.update { it.copy(
+                    userCommentInputValue = action.comment,
+                    userCommentInputError = null
+                ) }
             }
+
             else -> {}
         }
     }
 
-    private fun sendComment(comment: String) {
-        TODO("Not yet implemented")
+    private fun sendComment(commentText: String) = viewModelScope.launch {
+        postPublicationCommentUseCase(publicationId, commentText).collectLatest { result ->
+            when (result) {
+                is Resource.Error -> {
+                    _state.update {
+                        it.copy(
+                            userCommentInputError = R.string.comments_screen_cannot_send_comment_error,
+                            isSendCommentLoading = false
+                        )
+                    }
+                }
+
+                is Resource.Loading -> {
+                    _state.update {
+                        it.copy(
+                            userCommentInputError = null,
+                            isSendCommentLoading = true
+                        )
+                    }
+                }
+                is Resource.Success -> {
+                    _state.update {
+                        it.copy(
+                            userCommentInputError = null,
+                            userCommentInputValue = "",
+                            isSendCommentLoading = false,
+                        )
+                    }
+                    loadComments(publicationId)
+                }
+            }
+        }
     }
 
     private fun loadComments(publicationId: String) = viewModelScope.launch {
         getPublicationCommentsUseCase(publicationId).collectLatest { result ->
             when (result) {
                 is Resource.Error -> {
-                    _state.update { it.copy(
-                        isCommentsLoading = false,
-                        commentsError = R.string.comments_screen_cannot_load_comments_error
-                    ) }
+                    _state.update {
+                        it.copy(
+                            isCommentsLoading = false,
+                            commentsError = R.string.comments_screen_cannot_load_comments_error
+                        )
+                    }
                 }
+
                 is Resource.Loading -> {
-                    _state.update { it.copy(
-                        isCommentsLoading = true,
-                        commentsError = null
-                    ) }
+                    _state.update {
+                        it.copy(
+                            isCommentsLoading = true,
+                            commentsError = null
+                        )
+                    }
                 }
+
                 is Resource.Success -> {
-                    _state.update { it.copy(
-                        isCommentsLoading = false,
-                        commentsError = null,
-                        comments = result.data ?: emptyList()
-                    ) }
+                    _state.update {
+                        it.copy(
+                            isCommentsLoading = false,
+                            commentsError = null,
+                            comments = result.data ?: emptyList()
+                        )
+                    }
                 }
             }
         }
