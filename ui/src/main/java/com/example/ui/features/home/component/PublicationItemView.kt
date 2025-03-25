@@ -85,6 +85,7 @@ private fun BoxScope.PetTalkView(petTalk: String) {
     )
     PetTalkDisplayView(
         petTalk = petTalk,
+        textColor = Color.White,
         modifier = Modifier
             .align(Alignment.BottomStart)
             .padding(LocalDimensions.current.m)

@@ -63,7 +63,6 @@ fun CommentTextFieldView(
                 shape = RoundedCornerShape(LocalDimensions.current.corners),
                 modifier = Modifier
                     .padding(horizontal = LocalDimensions.current.s)
-                    .background(MaterialTheme.colorScheme.surface)
             )
             error?.let {
                 ErrorText(
