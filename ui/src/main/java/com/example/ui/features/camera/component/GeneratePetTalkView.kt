@@ -24,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.example.ui.R
 import com.example.ui.component.ErrorText
+import com.example.ui.component.PetTalkDisplayView
 import com.example.ui.features.camera.CameraScreenAction
 import com.example.ui.theme.LocalDimensions
 
@@ -52,7 +53,12 @@ fun GeneratePetTalkView(
                 PetTalkButton(isLoading, onAction)
             }
 
-            else -> PetTalkDisplay(petTalk)
+            else -> PetTalkDisplayView(
+                petTalk = petTalk,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = LocalDimensions.current.l)
+            )
         }
     }
 }
@@ -69,9 +75,18 @@ fun PetTalkButton(isLoading: Boolean, onAction: (CameraScreenAction) -> Unit) {
             }
             .padding(horizontal = LocalDimensions.current.m, vertical = LocalDimensions.current.s)
     ) {
-        if (!isLoading)
-            PetTalkIcons()
-        else {
+        if (!isLoading) {
+            Icon(
+                painter = painterResource(R.drawable.ic_magicpen_outlined),
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSecondary
+            )
+            Icon(
+                painter = painterResource(R.drawable.ic_paw_outlined),
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSecondary
+            )
+        } else {
             CircularProgressIndicator(
                 modifier = Modifier.size(LocalDimensions.current.iconSmall),
                 strokeWidth = LocalDimensions.current.stroke
@@ -88,32 +103,3 @@ fun PetTalkButton(isLoading: Boolean, onAction: (CameraScreenAction) -> Unit) {
     }
 }
 
-@Composable
-private fun PetTalkDisplay(petTalk: String) {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = LocalDimensions.current.xl)
-    ) {
-        PetTalkIcons()
-        Spacer(Modifier.width(LocalDimensions.current.xs))
-        Text(
-            "\"${petTalk}\"",
-            style = MaterialTheme.typography.bodyMedium,
-        )
-    }
-}
-
-@Composable
-private fun PetTalkIcons() {
-    Icon(
-        painter = painterResource(R.drawable.ic_magicpen_outlined),
-        contentDescription = null,
-        tint = MaterialTheme.colorScheme.onSecondary
-    )
-    Icon(
-        painter = painterResource(R.drawable.ic_paw_outlined),
-        contentDescription = null,
-        tint = MaterialTheme.colorScheme.onSecondary
-    )
-}

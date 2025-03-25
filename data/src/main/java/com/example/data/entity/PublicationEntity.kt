@@ -12,7 +12,8 @@ internal data class PublicationEntity(
     val timestamp: Long,
     val likes: List<String>,
     val comments: List<Comment>,
-    val petTalk: String?
+    val petTalk: String?,
+    val color: Publication.Color
 ) {
     fun toPublication() = Publication(
         id = id,
@@ -21,7 +22,8 @@ internal data class PublicationEntity(
         timestamp = timestamp,
         likes = likes,
         comments = comments,
-        petTalk = petTalk
+        petTalk = petTalk,
+        color = color
     )
 
     companion object {
@@ -32,7 +34,8 @@ internal data class PublicationEntity(
             timestamp = publication.timestamp,
             likes = publication.likes,
             comments = publication.comments,
-            petTalk = publication.petTalk
+            petTalk = publication.petTalk,
+            color = publication.color
         )
     }
 }

@@ -5,6 +5,7 @@ import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.PostPublicationModel
+import com.example.domain.models.Publication
 import com.example.domain.models.Resource
 import com.example.domain.usecase.GeneratePetTalkUseCase
 import com.example.domain.usecase.user.GetUserSessionUseCase
@@ -129,12 +130,14 @@ class CameraViewModel(
         val session = getUserSessionUseCase()
         val imageUriString = _state.value.selectedPhotoPath
         val petTalk = _state.value.petTalk
+        val color = Publication.Color.entries.random()
 
         if (imageUriString != null) {
             val postPublicationModel = PostPublicationModel(
                 userId = session.id,
                 imageUriString = imageUriString,
-                petTalk = petTalk
+                petTalk = petTalk,
+                color = color
             )
             postPublicationUseCase(postPublicationModel).collectLatest { result ->
                 when (result) {

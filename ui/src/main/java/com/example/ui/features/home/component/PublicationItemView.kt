@@ -1,6 +1,7 @@
 package com.example.ui.features.home.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
@@ -10,8 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -21,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.example.ui.component.PetTalkDisplayView
 import com.example.ui.features.home.HomeScreenAction
 import com.example.ui.features.home.model.PublicationUIModel
 import com.example.ui.theme.LocalDimensions
@@ -43,6 +43,11 @@ fun PublicationItemView(
                 .fillMaxWidth()
                 .height(350.dp)
                 .clip(RoundedCornerShape(LocalDimensions.current.corners))
+                .border(
+                    width = 2.dp,
+                    color = PublicationUIModel.getMaterialColorFrom(publication.color),
+                    shape = RoundedCornerShape(LocalDimensions.current.corners)
+                )
         ) {
             AsyncImage(
                 model = publication.imageUriString,
@@ -78,10 +83,8 @@ private fun BoxScope.PetTalkView(petTalk: String) {
                 )
             )
     )
-    Text(
-        text = petTalk,
-        style = MaterialTheme.typography.bodyMedium,
-        color = Color.White,
+    PetTalkDisplayView(
+        petTalk = petTalk,
         modifier = Modifier
             .align(Alignment.BottomStart)
             .padding(LocalDimensions.current.m)

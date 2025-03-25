@@ -12,7 +12,8 @@ internal data class PublicationDTO(
     val timestamp: Long,
     val likes: List<String>,
     val comments: List<Comment>,
-    val petTalk: String?
+    val petTalk: String?,
+    val color: Publication.Color
 ) {
     fun toPublication() =
         Publication(
@@ -22,6 +23,7 @@ internal data class PublicationDTO(
             timestamp = timestamp,
             likes = likes,
             comments = comments,
-            petTalk = petTalk
+            petTalk = petTalk,
+            color = color
         )
 }

@@ -1,5 +1,8 @@
 package com.example.ui.features.home.model
 
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import com.example.domain.models.Comment
 import com.example.domain.models.Publication
 import com.example.domain.models.UserPreview
@@ -12,6 +15,7 @@ data class PublicationUIModel(
     val likes: List<String>,
     val comments: List<Comment>,
     val petTalk: String?,
+    val color: Publication.Color,
     val isLiked: Boolean,
 ) {
     companion object {
@@ -23,7 +27,17 @@ data class PublicationUIModel(
             likes = publication.likes,
             comments = publication.comments,
             petTalk = publication.petTalk,
+            color = publication.color,
             isLiked = isLiked
         )
+
+        @Composable
+        fun getMaterialColorFrom(color: Publication.Color): Color {
+            return when (color) {
+                Publication.Color.PRIMARY -> MaterialTheme.colorScheme.primary
+                Publication.Color.SECONDARY -> MaterialTheme.colorScheme.secondary
+                Publication.Color.TERTIARY -> MaterialTheme.colorScheme.tertiary
+            }
+        }
     }
 }

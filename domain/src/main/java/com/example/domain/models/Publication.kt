@@ -7,5 +7,12 @@ data class Publication(
     val timestamp: Long,
     val likes: List<String>,
     val comments: List<Comment>,
-    val petTalk: String?
-)
+    val petTalk: String?,
+    val color: Color
+) {
+    enum class Color {
+        PRIMARY,
+        SECONDARY,
+        TERTIARY
+    }
+}

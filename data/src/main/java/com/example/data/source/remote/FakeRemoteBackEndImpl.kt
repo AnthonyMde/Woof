@@ -39,7 +39,8 @@ internal class FakeRemoteBackEndImpl(
             timestamp = now,
             likes = emptyList(),
             comments = emptyList(),
-            petTalk = request.petTalk
+            petTalk = request.petTalk,
+            color = request.petColor
         )
 
         mockedPublications = mockedPublications.toMutableList().apply {

@@ -28,7 +28,8 @@ internal class PublicationsRepositoryImpl(
         val request = CreatePublicationRequest(
             postPublicationModel.userId,
             postPublicationModel.imageUriString, // IRL we would upload image to back-end server.
-            postPublicationModel.petTalk
+            postPublicationModel.petTalk,
+            postPublicationModel.color
         )
 
         val publication = fakeRemoteBackEnd.createPublication(request).toPublication()

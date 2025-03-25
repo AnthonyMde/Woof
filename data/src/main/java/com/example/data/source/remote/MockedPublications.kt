@@ -3,6 +3,7 @@ package com.example.data.source.remote
 import com.example.data.dto.PublicationDTO
 import com.example.domain.constant.User
 import com.example.domain.models.Comment
+import com.example.domain.models.Publication
 import com.example.domain.models.UserAddress
 import com.example.domain.models.UserPreview
 import java.util.UUID
@@ -29,7 +30,8 @@ internal var mockedPublications = listOf(
             "202", "213", "224", "235", "246"
         ),
         comments = emptyList(),
-        petTalk = null
+        petTalk = null,
+        color = Publication.Color.TERTIARY
     ),
     PublicationDTO(
         id = UUID.randomUUID().toString(),
@@ -62,7 +64,8 @@ internal var mockedPublications = listOf(
                 timestamp = 1732590000000
             ),
         ),
-        petTalk = null
+        petTalk = null,
+        color = Publication.Color.SECONDARY
     ),
     PublicationDTO(
         id = UUID.randomUUID().toString(),
@@ -113,6 +116,7 @@ internal var mockedPublications = listOf(
                 timestamp = 1732600000000
             )
         ),
-        petTalk = null
+        petTalk = null,
+        color = Publication.Color.PRIMARY
     )
 )
