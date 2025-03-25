@@ -88,7 +88,7 @@ fun PetTalkButton(isLoading: Boolean, onAction: (CameraScreenAction) -> Unit) {
 }
 
 @Composable
-fun PetTalkDisplay(petTalk: String) {
+private fun PetTalkDisplay(petTalk: String) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -104,7 +104,7 @@ fun PetTalkDisplay(petTalk: String) {
 }
 
 @Composable
-fun PetTalkIcons() {
+private fun PetTalkIcons() {
     Icon(
         painter = painterResource(R.drawable.ic_magicpen_outlined),
         contentDescription = null

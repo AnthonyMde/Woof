@@ -6,6 +6,7 @@ import com.example.data.source.local.FakeLocalDatabase
 import com.example.data.source.remote.FakeRemoteBackEnd
 import com.example.domain.models.Comment
 import com.example.domain.models.PostCommentModel
+import com.example.domain.models.PostPublicationModel
 import com.example.domain.models.Publication
 import com.example.domain.repository.PublicationsRepository
 
@@ -23,10 +24,11 @@ internal class PublicationsRepositoryImpl(
         return savedPublications
     }
 
-    override suspend fun postPublication(userId: String, imageUriString: String) {
+    override suspend fun postPublication(postPublicationModel: PostPublicationModel) {
         val request = CreatePublicationRequest(
-            userId,
-            imageUriString // IRL we would upload image to back-end server.
+            postPublicationModel.userId,
+            postPublicationModel.imageUriString, // IRL we would upload image to back-end server.
+            postPublicationModel.petTalk
         )
 
         val publication = fakeRemoteBackEnd.createPublication(request).toPublication()

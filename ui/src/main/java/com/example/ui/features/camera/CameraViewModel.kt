@@ -4,6 +4,7 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.domain.models.PostPublicationModel
 import com.example.domain.models.Resource
 import com.example.domain.usecase.GeneratePetTalkUseCase
 import com.example.domain.usecase.user.GetUserSessionUseCase
@@ -127,11 +128,15 @@ class CameraViewModel(
     private fun postPublication() = viewModelScope.launch {
         val session = getUserSessionUseCase()
         val imageUriString = _state.value.selectedPhotoPath
+        val petTalk = _state.value.petTalk
+
         if (imageUriString != null) {
-            postPublicationUseCase(
+            val postPublicationModel = PostPublicationModel(
                 userId = session.id,
-                imageUriString = imageUriString
-            ).collectLatest { result ->
+                imageUriString = imageUriString,
+                petTalk = petTalk
+            )
+            postPublicationUseCase(postPublicationModel).collectLatest { result ->
                 when (result) {
                     is Resource.Error -> {
                         _state.update {

@@ -38,7 +38,8 @@ internal class FakeRemoteBackEndImpl(
             imageUriString = request.imageUriString,
             timestamp = now,
             likes = emptyList(),
-            comments = emptyList()
+            comments = emptyList(),
+            petTalk = request.petTalk
         )
 
         mockedPublications = mockedPublications.toMutableList().apply {

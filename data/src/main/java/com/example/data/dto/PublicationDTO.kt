@@ -11,7 +11,8 @@ internal data class PublicationDTO(
     val imageUriString: String,
     val timestamp: Long,
     val likes: List<String>,
-    val comments: List<Comment>
+    val comments: List<Comment>,
+    val petTalk: String?
 ) {
     fun toPublication() =
         Publication(
@@ -20,6 +21,7 @@ internal data class PublicationDTO(
             imageUriString = imageUriString,
             timestamp = timestamp,
             likes = likes,
-            comments = comments
+            comments = comments,
+            petTalk = petTalk
         )
 }

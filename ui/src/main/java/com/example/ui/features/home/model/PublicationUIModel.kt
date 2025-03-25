@@ -11,7 +11,8 @@ data class PublicationUIModel(
     val timestamp: Long,
     val likes: List<String>,
     val comments: List<Comment>,
-    val isLiked: Boolean
+    val petTalk: String?,
+    val isLiked: Boolean,
 ) {
     companion object {
         fun from(publication: Publication, isLiked: Boolean) = PublicationUIModel(
@@ -21,6 +22,7 @@ data class PublicationUIModel(
             timestamp = publication.timestamp,
             likes = publication.likes,
             comments = publication.comments,
+            petTalk = publication.petTalk,
             isLiked = isLiked
         )
     }

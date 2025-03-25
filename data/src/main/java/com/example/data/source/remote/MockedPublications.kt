@@ -28,7 +28,8 @@ internal var mockedPublications = listOf(
             "147", "158", "169", "180", "191",
             "202", "213", "224", "235", "246"
         ),
-        comments = emptyList()
+        comments = emptyList(),
+        petTalk = null
     ),
     PublicationDTO(
         id = UUID.randomUUID().toString(),
@@ -60,7 +61,8 @@ internal var mockedPublications = listOf(
                 text = "That smile made my day! 😄",
                 timestamp = 1732590000000
             ),
-        )
+        ),
+        petTalk = null
     ),
     PublicationDTO(
         id = UUID.randomUUID().toString(),
@@ -111,5 +113,6 @@ internal var mockedPublications = listOf(
                 timestamp = 1732600000000
             )
         ),
+        petTalk = null
     )
 )

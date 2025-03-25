@@ -6,5 +6,6 @@ data class Publication(
     val imageUriString: String,
     val timestamp: Long,
     val likes: List<String>,
-    val comments: List<Comment>
+    val comments: List<Comment>,
+    val petTalk: String?
 )

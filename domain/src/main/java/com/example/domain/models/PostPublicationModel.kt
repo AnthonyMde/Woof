@@ -1,6 +1,6 @@
-package com.example.data.request
+package com.example.domain.models
 
-internal data class CreatePublicationRequest(
+data class PostPublicationModel(
     val userId: String,
     val imageUriString: String,
     val petTalk: String?
