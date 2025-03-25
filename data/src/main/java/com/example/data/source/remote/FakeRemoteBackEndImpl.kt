@@ -33,7 +33,8 @@ internal class FakeRemoteBackEndImpl(
                 )
             ),
             imageUriString = request.imageUriString,
-            timestamp = now
+            timestamp = now,
+            likes = emptyList()
         )
 
         return publicationDTO
@@ -41,6 +42,18 @@ internal class FakeRemoteBackEndImpl(
 
     override suspend fun getUserProfileById(id: String): UserProfile? {
         return mockedProfiles.find { it.id == id }
+    }
+
+    override suspend fun togglePublicationLike(likerId: String, publicationId: String) {
+        mockedPublications = mockedPublications.map { publication ->
+            if (publication.id != publicationId) return@map publication
+
+            val updatedLikes = publication.likes.toMutableList().apply {
+                if (contains(likerId)) remove(likerId) else add(likerId)
+            }
+
+            publication.copy(likes = updatedLikes)
+        }
     }
 
     private fun getMockedPublicationDTOs(): List<PublicationDTO> {

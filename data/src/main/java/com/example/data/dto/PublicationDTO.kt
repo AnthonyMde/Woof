@@ -8,13 +8,15 @@ internal data class PublicationDTO(
     val id: String,
     val userPreview: UserPreview,
     val imageUriString: String,
-    val timestamp: Long
+    val timestamp: Long,
+    val likes: List<String>
 ) {
     fun toPublication() =
         Publication(
             id = id,
             userPreview = userPreview,
             imageUriString = imageUriString,
-            timestamp = timestamp
+            timestamp = timestamp,
+            likes = likes
         )
 }

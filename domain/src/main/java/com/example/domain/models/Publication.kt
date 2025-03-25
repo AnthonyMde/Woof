@@ -4,5 +4,6 @@ data class Publication(
     val id: String,
     val userPreview: UserPreview,
     val imageUriString: String,
-    val timestamp: Long
+    val timestamp: Long,
+    val likes: List<String>
 )

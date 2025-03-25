@@ -17,4 +17,8 @@ internal class UserRepositoryImpl(
     override suspend fun getUserProfile(userId: String): UserProfile? {
         return fakeRemoteBackEnd.getUserProfileById(userId)
     }
+
+    override suspend fun togglePublicationLike(likerId: String, publicationId: String) {
+        fakeRemoteBackEnd.togglePublicationLike(likerId, publicationId)
+    }
 }

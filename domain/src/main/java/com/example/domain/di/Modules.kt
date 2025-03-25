@@ -5,6 +5,7 @@ import com.example.domain.usecase.GetUserProfileUseCase
 import com.example.domain.usecase.GetPublicationsUseCase
 import com.example.domain.usecase.GetUserSessionUseCase
 import com.example.domain.usecase.PostPublicationUseCase
+import com.example.domain.usecase.TogglePublicationLikeUseCase
 import org.koin.dsl.module
 
 val domainModules = module {
@@ -13,6 +14,7 @@ val domainModules = module {
     single { GetPublicationsUseCase(get()) }
     single { PostPublicationUseCase(get()) }
     single { GetUserProfileUseCase(get()) }
+    single { TogglePublicationLikeUseCase(get()) }
 
     // HELPERS
     single<Clock> { SystemClock() }
