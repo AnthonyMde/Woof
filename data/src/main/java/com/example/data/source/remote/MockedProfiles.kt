@@ -38,7 +38,7 @@ internal val mockedProfiles = listOf(
     UserProfile(
         id = "2",
         name = "Bobby",
-        picture = "android.resource://com.example.woof/drawable/user_pp",
+        picture = "android.resource://com.example.woof/drawable/berger_australien",
         address = UserAddress(
             city = "Paris",
             country = "France"
@@ -55,7 +55,7 @@ internal val mockedProfiles = listOf(
     UserProfile(
         id = "3",
         name = "King",
-        picture = "android.resource://com.example.woof/drawable/user_pp",
+        picture = "android.resource://com.example.woof/drawable/cat",
         address = UserAddress(
             city = "Bruxelles",
             country = "Belgique"
@@ -72,7 +72,7 @@ internal val mockedProfiles = listOf(
     UserProfile(
         id = "4",
         name = "Doudou",
-        picture = "android.resource://com.example.woof/drawable/user_pp",
+        picture = "android.resource://com.example.woof/drawable/doudou2",
         address = UserAddress(
             city = "Bordeaux",
             country = "France"

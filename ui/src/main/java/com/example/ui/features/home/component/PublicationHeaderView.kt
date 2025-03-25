@@ -15,7 +15,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
-import com.example.domain.constant.User
 import com.example.domain.models.UserPreview
 import com.example.ui.R
 import com.example.ui.features.home.HomeScreenAction
@@ -33,7 +32,7 @@ fun PublicationHeaderView(
         .padding(horizontal = LocalDimensions.current.m)
     ) {
         AsyncImage(
-            model = User.PICTURE,
+            model = userPreview.pictureUri,
             contentDescription = stringResource(R.string.publication_header_view_profile_picture_description),
             contentScale = ContentScale.Crop,
             modifier = Modifier
