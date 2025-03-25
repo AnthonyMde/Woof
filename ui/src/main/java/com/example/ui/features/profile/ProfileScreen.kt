@@ -1,6 +1,5 @@
 package com.example.ui.features.profile
 
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
