@@ -5,6 +5,7 @@ import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Resource
+import com.example.domain.usecase.GeneratePetTalkUseCase
 import com.example.domain.usecase.user.GetUserSessionUseCase
 import com.example.domain.usecase.publication.PostPublicationUseCase
 import com.example.ui.R
@@ -24,6 +25,7 @@ import kotlinx.coroutines.launch
 class CameraViewModel(
     private val getUserSessionUseCase: GetUserSessionUseCase,
     private val postPublicationUseCase: PostPublicationUseCase,
+    private val generatePetTalkUseCase: GeneratePetTalkUseCase,
     private val permissionsHelper: PermissionsHelper,
     private val fileHelper: FileHelper
 ) : ViewModel() {
@@ -57,7 +59,12 @@ class CameraViewModel(
 
             CameraScreenAction.OnClearPhoto -> {
                 _state.update {
-                    it.copy(selectedPhotoPath = null)
+                    it.copy(
+                        selectedPhotoPath = null,
+                        petTalk = null,
+                        petTalkError = null,
+                        sendPhotoError = null
+                    )
                 }
             }
 
@@ -67,6 +74,43 @@ class CameraViewModel(
             }
 
             CameraScreenAction.OnSwitchCamera -> onSwitchCamera()
+            CameraScreenAction.OnGeneratePetTalkClicked -> generatePetTalk()
+        }
+    }
+
+    private fun generatePetTalk() = viewModelScope.launch {
+        val imageUriString = _state.value.selectedPhotoPath
+        if (imageUriString == null) {
+            _state.update {
+                it.copy(
+                    petTalkError = R.string.generate_pet_talk_error
+                )
+            }
+            return@launch
+        }
+
+        generatePetTalkUseCase(imageUriString).collectLatest { result ->
+            when (result) {
+                is Resource.Error -> {
+                    _state.update { it.copy(
+                        petTalkError = R.string.generate_pet_talk_error,
+                        isPetTalkLoading = false
+                    ) }
+                }
+                is Resource.Loading -> {
+                    _state.update { it.copy(
+                        petTalkError = null,
+                        isPetTalkLoading = true
+                    ) }
+                }
+                is Resource.Success -> {
+                    _state.update { it.copy(
+                        petTalkError = null,
+                        isPetTalkLoading = false,
+                        petTalk = result.data
+                    ) }
+                }
+            }
         }
     }
 

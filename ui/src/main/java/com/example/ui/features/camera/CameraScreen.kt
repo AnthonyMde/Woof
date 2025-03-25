@@ -74,9 +74,7 @@ fun CameraScreen(
 
             state.selectedPhotoPath != null -> {
                 SelectedPhotoView(
-                    isSendPhotoLoading = state.isSendPhotoLoading,
-                    selectedPhotoPath = state.selectedPhotoPath,
-                    sendError = state.sendPhotoError,
+                    state = state,
                     onAction = onAction
                 )
             }

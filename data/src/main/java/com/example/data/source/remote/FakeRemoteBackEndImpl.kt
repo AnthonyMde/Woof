@@ -95,6 +95,8 @@ internal class FakeRemoteBackEndImpl(
         return mockedPublications
     }
 
+    // Note: here the imageUriString + userId (infos) params is just to fake that we are analysing
+    // the content of the image by AI to generate a accurate pet talk.
     override suspend fun generatePetTalkWithAI(userId: String, imageUriString: String): String {
         delay(QUICK_FAKED_NETWORK_CALL_TIME_MS)
 

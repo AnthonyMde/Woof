@@ -10,4 +10,8 @@ data class CameraScreenState(
     val isSendPhotoLoading: Boolean = false,
     @StringRes val sendPhotoError: Int? = null,
     val cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA,
+
+    val petTalk: String? = null,
+    val isPetTalkLoading: Boolean = false,
+    @StringRes val petTalkError: Int? = null
 )
