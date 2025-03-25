@@ -1,5 +1,6 @@
 package com.example.ui.features.home.component
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,14 +18,18 @@ import coil.compose.AsyncImage
 import com.example.domain.constant.User
 import com.example.domain.models.UserPreview
 import com.example.ui.R
+import com.example.ui.features.home.HomeScreenAction
 import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun PublicationHeaderView(
-    userPreview: UserPreview
+    userPreview: UserPreview,
+    onAction: (HomeScreenAction) -> Unit
 ) {
     Row(modifier = Modifier
-        .fillMaxWidth()
+        .clickable {
+            onAction(HomeScreenAction.OnPublicationHeaderClicked(userPreview.userId))
+        }
         .padding(horizontal = LocalDimensions.current.m)
     ) {
         AsyncImage(
@@ -38,7 +43,7 @@ fun PublicationHeaderView(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = LocalDimensions.current.l)
+                .padding(horizontal = LocalDimensions.current.sm)
         ) {
             Text(
                 userPreview.name,

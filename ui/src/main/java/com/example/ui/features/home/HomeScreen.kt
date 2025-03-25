@@ -75,7 +75,7 @@ fun HomeScreen(
             }
 
             items(state.publications) { publication ->
-                PublicationItemView(publication)
+                PublicationItemView(publication, onAction)
                 Spacer(modifier = Modifier.height(LocalDimensions.current.l))
             }
         }

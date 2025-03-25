@@ -13,15 +13,18 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.domain.models.Publication
+import com.example.ui.features.home.HomeScreenAction
 import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun PublicationItemView(
-    publication: Publication
+    publication: Publication,
+    onAction: (HomeScreenAction) -> Unit
 ) {
     Column(verticalArrangement = Arrangement.spacedBy(LocalDimensions.current.s)) {
         PublicationHeaderView(
-            userPreview = publication.userPreview
+            userPreview = publication.userPreview,
+            onAction = onAction
         )
         Spacer(modifier = Modifier.height(LocalDimensions.current.s))
         AsyncImage(

@@ -36,7 +36,12 @@ class HomeViewModel(
     fun onAction(action: HomeScreenAction) {
         when (action) {
             HomeScreenAction.OnMyProfileClicked -> onMyProfileClicked()
+            is HomeScreenAction.OnPublicationHeaderClicked -> onPublicationHeaderClicked(action.userId)
         }
+    }
+
+    private fun onPublicationHeaderClicked(userId: String) {
+        _navigationEvent.tryEmit(HomeScreenNavigationEvent.GoToUserDetails(userId))
     }
 
     private fun onMyProfileClicked() = viewModelScope.launch {
