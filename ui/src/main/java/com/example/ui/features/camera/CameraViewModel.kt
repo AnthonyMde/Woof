@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.models.publication.PostPublicationModel
 import com.example.domain.models.publication.Publication
 import com.example.domain.models.Resource
-import com.example.domain.usecase.GeneratePetTalkUseCase
+import com.example.domain.usecase.publication.GeneratePetTalkUseCase
 import com.example.domain.usecase.user.GetUserSessionUseCase
 import com.example.domain.usecase.publication.PostPublicationUseCase
 import com.example.ui.R
