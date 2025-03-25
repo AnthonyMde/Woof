@@ -63,7 +63,7 @@ fun PetTalkButton(isLoading: Boolean, onAction: (CameraScreenAction) -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .clip(RoundedCornerShape(LocalDimensions.current.corners))
-            .background(MaterialTheme.colorScheme.tertiaryContainer)
+            .background(MaterialTheme.colorScheme.secondary)
             .clickable {
                 onAction(CameraScreenAction.OnGeneratePetTalkClicked)
             }
@@ -82,7 +82,8 @@ fun PetTalkButton(isLoading: Boolean, onAction: (CameraScreenAction) -> Unit) {
 
         Text(
             stringResource(R.string.camera_generate_pet_talk_button),
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onSecondary
         )
     }
 }
@@ -107,10 +108,12 @@ private fun PetTalkDisplay(petTalk: String) {
 private fun PetTalkIcons() {
     Icon(
         painter = painterResource(R.drawable.ic_magicpen_outlined),
-        contentDescription = null
+        contentDescription = null,
+        tint = MaterialTheme.colorScheme.onSecondary
     )
     Icon(
         painter = painterResource(R.drawable.ic_paw_outlined),
-        contentDescription = null
+        contentDescription = null,
+        tint = MaterialTheme.colorScheme.onSecondary
     )
 }

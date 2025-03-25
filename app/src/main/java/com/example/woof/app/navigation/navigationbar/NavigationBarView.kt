@@ -25,7 +25,7 @@ fun NavigationBarView(
         .contains(currentRoute)
 
     if (showBottomBar) {
-        NavigationBar {
+        NavigationBar(containerColor = MaterialTheme.colorScheme.surface) {
             NavigationBarItem.entries.fastForEach { item ->
                 val isSelected = currentRoute == item.route::class.qualifiedName
                 NavigationBarItem(
