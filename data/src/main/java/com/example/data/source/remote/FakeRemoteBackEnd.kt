@@ -11,4 +11,5 @@ internal interface FakeRemoteBackEnd {
     suspend fun getUserProfileById(id: String): UserProfile?
     suspend fun togglePublicationLike(likerId: String, publicationId: String): List<PublicationDTO>
     suspend fun postPublicationComment(postCommentModel: PostCommentModel): List<PublicationDTO>
+    suspend fun generatePetTalkWithAI(userId: String, imageUriString: String): String
 }

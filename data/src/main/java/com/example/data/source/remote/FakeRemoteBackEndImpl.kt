@@ -71,7 +71,8 @@ internal class FakeRemoteBackEndImpl(
     override suspend fun postPublicationComment(postCommentModel: PostCommentModel): List<PublicationDTO> {
         delay(QUICK_FAKED_NETWORK_CALL_TIME_MS)
 
-        val userProfile = getUserProfileById(postCommentModel.userId) ?: throw DomainException.NoProfileFoundError
+        val userProfile =
+            getUserProfileById(postCommentModel.userId) ?: throw DomainException.NoProfileFoundError
         val comment = Comment(
             userInfo = Comment.UserInfo(
                 id = userProfile.id,
@@ -92,6 +93,12 @@ internal class FakeRemoteBackEndImpl(
         }
 
         return mockedPublications
+    }
+
+    override suspend fun generatePetTalkWithAI(userId: String, imageUriString: String): String {
+        delay(QUICK_FAKED_NETWORK_CALL_TIME_MS)
+
+        return mockedPetTalks.random()
     }
 
     private fun getMockedPublicationDTOs(): List<PublicationDTO> {

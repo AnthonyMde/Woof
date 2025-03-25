@@ -34,31 +34,19 @@ fun SelectedPhotoView(
     @StringRes sendError: Int? = null,
     onAction: (CameraScreenAction) -> Unit
 ) {
-    Column(modifier = Modifier.fillMaxSize()) {
-        Box(
-            modifier = Modifier
-                .padding(horizontal = LocalDimensions.current.xs)
-                .padding(top = LocalDimensions.current.m)
-                .weight(3f)
-                .clip(RoundedCornerShape(LocalDimensions.current.corners))
-        ) {
-            AsyncImage(
-                model = selectedPhotoPath,
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
-            )
-            OverlayIconButton(
-                icon = R.drawable.ic_close_filled,
-                onClick = {
-                    onAction(CameraScreenAction.OnClearPhoto)
-                },
-                contentDescription = stringResource(R.string.camera_selected_photo_view_clear_description),
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .padding(top = LocalDimensions.current.m, end = LocalDimensions.current.m)
-            )
-        }
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        CameraImagePreviewView(
+            selectedPhotoPath,
+            onAction
+        )
+
+        Spacer(Modifier.height(LocalDimensions.current.m))
+
+        GeneratePetTalkView()
 
         Box(
             modifier = Modifier

@@ -1,6 +1,7 @@
 package com.example.domain.di
 import com.example.domain.helper.Clock
 import com.example.domain.helper.SystemClock
+import com.example.domain.usecase.GeneratePetTalkUseCase
 import com.example.domain.usecase.publication.GetPublicationCommentsUseCase
 import com.example.domain.usecase.publication.GetPublicationsUseCase
 import com.example.domain.usecase.user.GetUserProfileUseCase
@@ -18,6 +19,7 @@ val domainModules = module {
     single { GetUserProfileUseCase(get()) }
     single { TogglePublicationLikeUseCase(get()) }
     single { GetPublicationCommentsUseCase(get()) }
+    single { GeneratePetTalkUseCase(get(), get()) }
     single { PostPublicationCommentUseCase(get(), get()) }
 
     // HELPERS

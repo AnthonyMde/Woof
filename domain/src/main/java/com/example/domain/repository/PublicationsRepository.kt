@@ -9,4 +9,5 @@ interface PublicationsRepository {
     suspend fun postPublication(userId: String, imageUriString: String)
     suspend fun getPublicationComments(publicationId: String): List<Comment>
     suspend fun postPublicationComment(postCommentModel: PostCommentModel)
+    suspend fun generatePetTalk(userId: String, imageUriString: String): String
 }

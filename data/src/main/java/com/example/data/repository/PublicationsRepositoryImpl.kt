@@ -42,4 +42,8 @@ internal class PublicationsRepositoryImpl(
             .map { it.toPublication() }
         fakeLocalDatabase.savePublications(*publications.map { PublicationEntity.from(it) }.toTypedArray())
     }
+
+    override suspend fun generatePetTalk(userId: String, imageUriString: String): String {
+        return fakeRemoteBackEnd.generatePetTalkWithAI(userId, imageUriString)
+    }
 }
