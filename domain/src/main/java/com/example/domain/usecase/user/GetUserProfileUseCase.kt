@@ -1,4 +1,4 @@
-package com.example.domain.usecase
+package com.example.domain.usecase.user
 
 import com.example.domain.error.DomainException
 import com.example.domain.models.Resource

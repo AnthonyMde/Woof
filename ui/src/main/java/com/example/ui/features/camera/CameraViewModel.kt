@@ -5,8 +5,8 @@ import androidx.camera.core.ImageProxy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.models.Resource
-import com.example.domain.usecase.GetUserSessionUseCase
-import com.example.domain.usecase.PostPublicationUseCase
+import com.example.domain.usecase.user.GetUserSessionUseCase
+import com.example.domain.usecase.publication.PostPublicationUseCase
 import com.example.ui.R
 import com.example.ui.helper.CameraControlHelper
 import com.example.ui.helper.FileHelper

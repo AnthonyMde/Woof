@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
 import com.example.domain.models.Resource
-import com.example.domain.usecase.GetPublicationCommentsUseCase
-import com.example.domain.usecase.PostPublicationCommentUseCase
+import com.example.domain.usecase.publication.GetPublicationCommentsUseCase
+import com.example.domain.usecase.publication.PostPublicationCommentUseCase
 import com.example.ui.R
 import com.example.ui.navigation.Route
 import kotlinx.coroutines.flow.MutableStateFlow

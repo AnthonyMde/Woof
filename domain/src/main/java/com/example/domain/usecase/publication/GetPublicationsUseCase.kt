@@ -1,4 +1,4 @@
-package com.example.domain.usecase
+package com.example.domain.usecase.publication
 
 import com.example.domain.models.Publication
 import com.example.domain.models.Resource

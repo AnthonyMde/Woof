@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.error.DomainException
 import com.example.domain.models.Resource
-import com.example.domain.usecase.GetUserProfileUseCase
+import com.example.domain.usecase.user.GetUserProfileUseCase
 import com.example.ui.R
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
