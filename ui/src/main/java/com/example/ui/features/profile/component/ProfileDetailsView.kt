@@ -14,11 +14,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import com.example.domain.models.UserProfile
+import com.example.ui.features.profile.ProfileScreenAction
 import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun ProfileDetailsView(
-    profile: UserProfile
+    profile: UserProfile,
+    onAction: (ProfileScreenAction) -> Unit
 ) {
     LazyVerticalStaggeredGrid(
         columns = StaggeredGridCells.Fixed(2),
@@ -27,7 +29,7 @@ fun ProfileDetailsView(
         modifier = Modifier.fillMaxSize()
     ) {
         item(span = StaggeredGridItemSpan.FullLine, content = {
-            ProfileDetailsHeaderView(profile)
+            ProfileDetailsHeaderView(profile, onAction)
         })
 
         items(profile.publicationImages) { image ->

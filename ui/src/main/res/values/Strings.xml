@@ -18,6 +18,7 @@
     <string name="profile_details_post_count">%1$s posts</string>
     <string name="profile_details_follower_count">%1$s followers</string>
     <string name="profile_details_following_count">%1$s followings</string>
+    <string name="profile_details_back_arrow_description">Go back</string>
 
     <!-- PUBLICATION -->
     <string name="publication_header_view_profile_picture_description">User profile picture</string>

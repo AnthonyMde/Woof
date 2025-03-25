@@ -38,15 +38,23 @@ fun ProfileScreenRoot(
     }
 
     ProfileScreen(
-        state = state
+        state = state,
+        onAction = { action ->
+            when (action) {
+                ProfileScreenAction.OnNavigateUpClicked -> navigateUp()
+            }
+        }
     )
 }
 
 @Composable
-fun ProfileScreen(state: ProfileScreenState) {
+fun ProfileScreen(
+    state: ProfileScreenState,
+    onAction: (ProfileScreenAction) -> Unit
+) {
     when (state) {
         is ProfileScreenState.Error -> ProfileErrorView(state.error)
         ProfileScreenState.Loading -> ProfileLoadingView()
-        is ProfileScreenState.Success -> ProfileDetailsView(state.profile)
+        is ProfileScreenState.Success -> ProfileDetailsView(state.profile, onAction)
     }
 }

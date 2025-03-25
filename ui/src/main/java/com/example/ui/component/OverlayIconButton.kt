@@ -24,7 +24,7 @@ fun OverlayIconButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     tint: Color = Color.White,
-    backgroundColor: Color = Color.Black.copy(alpha = 0.6f),
+    backgroundColor: Color = Color.Black.copy(alpha = 0.3f),
     iconSize: Dp = LocalDimensions.current.icon,
 ) {
     Box(
