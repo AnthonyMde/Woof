@@ -42,6 +42,7 @@ class HomeViewModel(
             HomeScreenAction.OnMyProfileClicked -> onMyProfileClicked()
             is HomeScreenAction.OnPublicationHeaderClicked -> onPublicationHeaderClicked(action.userId)
             is HomeScreenAction.OnPublicationLikeClicked -> togglePublicationLike(action.publicationId)
+            else -> {}
         }
     }
 

@@ -1,6 +1,8 @@
 package com.example.data.source.remote
 
 import com.example.data.dto.PublicationDTO
+import com.example.domain.constant.User
+import com.example.domain.models.Comment
 import com.example.domain.models.UserAddress
 import com.example.domain.models.UserPreview
 import java.util.UUID
@@ -25,7 +27,8 @@ internal var mockedPublications = listOf(
             "92", "103", "114", "125", "136",
             "147", "158", "169", "180", "191",
             "202", "213", "224", "235", "246"
-        )
+        ),
+        comments = emptyList()
     ),
     PublicationDTO(
         id = UUID.randomUUID().toString(),
@@ -46,6 +49,17 @@ internal var mockedPublications = listOf(
             "92", "103", "114", "125", "136",
             "147", "158", "169", "180", "191",
             "202", "213", "224", "235", "246"
+        ),
+        comments = listOf(
+            Comment(
+                userInfo = Comment.UserInfo(
+                    id = "4",
+                    name = "Doudou",
+                    pictureUriString = "android.resource://com.example.woof/drawable/doudou"
+                ),
+                text = "That smile made my day! 😄",
+                timestamp = 1732590000000
+            ),
         )
     ),
     PublicationDTO(
@@ -67,6 +81,35 @@ internal var mockedPublications = listOf(
             "92", "103", "114", "125", "136",
             "147", "158", "169", "180", "191",
             "202", "213", "224", "235", "246"
-        )
+        ),
+        comments = listOf(
+            Comment(
+                userInfo = Comment.UserInfo(
+                    id = User.USER_ID,
+                    name = User.USERNAME,
+                    pictureUriString = "android.resource://com.example.woof/drawable/cavalier_king"
+                ),
+                text = "Such a cute pup! 🐶💕",
+                timestamp = 1732580000000
+            ),
+            Comment(
+                userInfo = Comment.UserInfo(
+                    id = "4",
+                    name = "Doudou",
+                    pictureUriString = "android.resource://com.example.woof/drawable/doudou"
+                ),
+                text = "That smile made my day! 😄",
+                timestamp = 1732590000000
+            ),
+            Comment(
+                userInfo = Comment.UserInfo(
+                    id = "3",
+                    name = "King",
+                    pictureUriString = "android.resource://com.example.woof/drawable/corgi"
+                ),
+                text = "Where was this taken? The background is beautiful! 🌅",
+                timestamp = 1732600000000
+            )
+        ),
     )
 )

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- COMMON ERRORS -->
+    <!-- COMMON -->
     <string name="unknown_error">Oops, something went wrong.</string>
+    <string name="back_top_appbar_default_description">Go back.</string>
 
     <!-- BOTTOM BAR -->
     <string name="navigation_bar_home_title">Home</string>
@@ -24,6 +25,12 @@
     <string name="publication_header_view_profile_picture_description">User profile picture</string>
     <string name="publication_footer_view_like_icon_description">Like this publication.</string>
     <string name="publication_footer_view_remove_like_icon_description">Remove like for this publication.</string>
+    <string name="publication_footer_view_comment_icon_description">Show publication\'s comments.</string>
+
+    <!-- COMMENTS SCREEN -->
+    <string name="comments_screen_top_bar_title">Comments</string>
+    <string name="comments_screen_send_comment_icon_description">Send your comment.</string>
+    <string name="comments_screen_comment_input_placeholder">Add a comment…</string>
 
     <!-- CAMERA -->
     <string name="camera_screen_no_permissions_view_title">Please, allow permissions 🙏</string>

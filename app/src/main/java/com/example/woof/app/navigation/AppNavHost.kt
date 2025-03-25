@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.ui.features.ShopScreen
 import com.example.ui.features.camera.CameraScreenRoot
+import com.example.ui.features.comments.CommentScreenRoot
 import com.example.ui.features.home.HomeScreenRoot
 import com.example.ui.features.profile.ProfileScreenRoot
 
@@ -15,15 +16,17 @@ fun AppNavHost(navController: NavHostController) {
         navController = navController,
         startDestination = Route.Home
     ) {
-        composable<Route.Home>(
-
-        ) {
+        composable<Route.Home> {
             HomeScreenRoot(
                 goToUserProfile = { id ->
                     navController.navigate(Route.Profile(id))
+                },
+                goToCommentScreen = { publicationId ->
+                    navController.navigate(Route.Comments(publicationId))
                 }
             )
         }
+
         composable<Route.Camera> {
             CameraScreenRoot(
                 goBackHome = {
@@ -35,9 +38,11 @@ fun AppNavHost(navController: NavHostController) {
                 }
             )
         }
+
         composable<Route.Shop> {
             ShopScreen()
         }
+
         composable<Route.Profile>(
             enterTransition = {
                 defaultEnterTransition()
@@ -51,7 +56,25 @@ fun AppNavHost(navController: NavHostController) {
             ProfileScreenRoot(
                 userId,
                 navigateUp = {
-                    navController.popBackStack()
+                    navController.navigateUp()
+                }
+            )
+        }
+
+        composable<Route.Comments>(
+            enterTransition = {
+                defaultEnterTransition()
+            },
+            popExitTransition = {
+                defaultPopExitTransition()
+            }
+        ) { backStackEntry ->
+            val publicationId = backStackEntry.arguments?.getString("publicationId") ?: return@composable
+
+            CommentScreenRoot(
+                publicationId,
+                navigateUp = {
+                    navController.navigateUp()
                 }
             )
         }

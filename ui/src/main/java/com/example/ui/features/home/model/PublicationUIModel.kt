@@ -1,5 +1,6 @@
 package com.example.ui.features.home.model
 
+import com.example.domain.models.Comment
 import com.example.domain.models.Publication
 import com.example.domain.models.UserPreview
 
@@ -9,6 +10,7 @@ data class PublicationUIModel(
     val imageUriString: String,
     val timestamp: Long,
     val likes: List<String>,
+    val comments: List<Comment>,
     val isLiked: Boolean
 ) {
     companion object {
@@ -18,6 +20,7 @@ data class PublicationUIModel(
             imageUriString = publication.imageUriString,
             timestamp = publication.timestamp,
             likes = publication.likes,
+            comments = publication.comments,
             isLiked = isLiked
         )
     }

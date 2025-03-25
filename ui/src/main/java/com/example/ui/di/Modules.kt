@@ -1,6 +1,7 @@
 package com.example.ui.di
 
 import com.example.ui.features.camera.CameraViewModel
+import com.example.ui.features.comments.CommentsViewModel
 import com.example.ui.features.home.HomeViewModel
 import com.example.ui.features.profile.ProfileViewModel
 import com.example.ui.helper.FileHelper
@@ -13,6 +14,7 @@ val uiModules = module {
     viewModel { HomeViewModel(get(), get(), get()) }
     viewModel { CameraViewModel(get(), get(), get(), get()) }
     viewModel { ProfileViewModel(get()) }
+    viewModel { CommentsViewModel() }
 
     // HELPER
     single { PermissionsHelper(get()) }

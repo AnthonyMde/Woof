@@ -24,7 +24,8 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun HomeScreenRoot(
     viewModel: HomeViewModel = koinViewModel(),
-    goToUserProfile: (String) -> Unit
+    goToUserProfile: (String) -> Unit,
+    goToCommentScreen: (String) -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle(HomeScreenState())
     val scope = rememberCoroutineScope()
@@ -42,6 +43,9 @@ fun HomeScreenRoot(
     HomeScreen(
         state = state,
         onAction = { action ->
+            if (action is HomeScreenAction.OnPublicationCommentClicked) {
+                goToCommentScreen(action.publicationId)
+            }
             viewModel.onAction(action)
         }
     )

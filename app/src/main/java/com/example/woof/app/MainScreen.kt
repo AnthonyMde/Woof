@@ -1,6 +1,7 @@
 package com.example.woof.app
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -22,6 +23,7 @@ fun MainScreen() {
     ) { innerPadding ->
         Box(
             modifier = Modifier
+                .consumeWindowInsets(innerPadding)
                 .padding(innerPadding)
         ) {
             AppNavHost(navController)

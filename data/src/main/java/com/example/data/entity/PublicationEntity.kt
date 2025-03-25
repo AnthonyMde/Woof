@@ -1,5 +1,6 @@
 package com.example.data.entity
 
+import com.example.domain.models.Comment
 import com.example.domain.models.Publication
 import com.example.domain.models.UserPreview
 
@@ -9,14 +10,16 @@ internal data class PublicationEntity(
     val userPreview: UserPreview,
     val imageUriString: String,
     val timestamp: Long,
-    val likes: List<String>
+    val likes: List<String>,
+    val comments: List<Comment>
 ) {
     fun toPublication() = Publication(
         id = id,
         userPreview = userPreview,
         imageUriString = imageUriString,
         timestamp = timestamp,
-        likes = likes
+        likes = likes,
+        comments = comments
     )
 
     companion object {
@@ -25,7 +28,8 @@ internal data class PublicationEntity(
             userPreview = publication.userPreview,
             imageUriString = publication.imageUriString,
             timestamp = publication.timestamp,
-            likes = publication.likes
+            likes = publication.likes,
+            comments = publication.comments
         )
     }
 }

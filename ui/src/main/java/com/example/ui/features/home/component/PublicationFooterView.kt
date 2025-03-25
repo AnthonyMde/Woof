@@ -40,19 +40,34 @@ fun PublicationFooterView(
                 tint = tint
             )
         }
-
         Text(
             publication.likes.size.toString(),
+            style = MaterialTheme.typography.labelMedium,
+            modifier = Modifier.offset(x = -LocalDimensions.current.s)
+        )
+
+        IconButton(
+            onClick = {
+                onAction(HomeScreenAction.OnPublicationCommentClicked(publication.id))
+            }) {
+            Icon(
+                painter = painterResource(R.drawable.ic_comment_outlined),
+                contentDescription = stringResource(R.string.publication_footer_view_comment_icon_description)
+            )
+        }
+        Text(
+            publication.comments.size.toString(),
             style = MaterialTheme.typography.labelMedium,
             modifier = Modifier.offset(x = -LocalDimensions.current.s)
         )
     }
 }
 
+@Composable
 private fun getTint(isLiked: Boolean): Color = if (isLiked) {
     Color.Red
 } else {
-    Color.Gray
+    MaterialTheme.colorScheme.onSurface
 }
 
 private fun getIcon(isLiked: Boolean) = if (isLiked) {

@@ -1,5 +1,6 @@
 package com.example.data.dto
 
+import com.example.domain.models.Comment
 import com.example.domain.models.Publication
 import com.example.domain.models.UserPreview
 
@@ -9,7 +10,8 @@ internal data class PublicationDTO(
     val userPreview: UserPreview,
     val imageUriString: String,
     val timestamp: Long,
-    val likes: List<String>
+    val likes: List<String>,
+    val comments: List<Comment>
 ) {
     fun toPublication() =
         Publication(
@@ -17,6 +19,7 @@ internal data class PublicationDTO(
             userPreview = userPreview,
             imageUriString = imageUriString,
             timestamp = timestamp,
-            likes = likes
+            likes = likes,
+            comments = comments
         )
 }

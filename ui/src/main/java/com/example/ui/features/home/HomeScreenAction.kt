@@ -4,4 +4,5 @@ sealed interface HomeScreenAction {
     data object OnMyProfileClicked : HomeScreenAction
     data class OnPublicationHeaderClicked(val userId: String) : HomeScreenAction
     data class OnPublicationLikeClicked(val publicationId: String): HomeScreenAction
+    data class OnPublicationCommentClicked(val publicationId: String): HomeScreenAction
 }

@@ -34,7 +34,8 @@ internal class FakeRemoteBackEndImpl(
             ),
             imageUriString = request.imageUriString,
             timestamp = now,
-            likes = emptyList()
+            likes = emptyList(),
+            comments = emptyList()
         )
 
         mockedPublications = mockedPublications.toMutableList().apply {
