@@ -1,4 +1,4 @@
-package com.example.data.source.remote
+package com.example.data.source.remote.mock
 
 import com.example.data.dto.PublicationDTO
 import com.example.domain.constant.User

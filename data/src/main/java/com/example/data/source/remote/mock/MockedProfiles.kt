@@ -1,4 +1,4 @@
-package com.example.data.source.remote
+package com.example.data.source.remote.mock
 
 import com.example.domain.constant.User
 import com.example.domain.models.user.UserAddress

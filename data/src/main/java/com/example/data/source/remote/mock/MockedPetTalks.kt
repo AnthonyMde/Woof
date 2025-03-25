@@ -1,4 +1,4 @@
-package com.example.data.source.remote
+package com.example.data.source.remote.mock
 
 internal val mockedPetTalks = listOf(
     "I'm just here to make your day better 🐾❤️",

@@ -2,6 +2,9 @@ package com.example.data.source.remote
 
 import com.example.data.dto.PublicationDTO
 import com.example.data.request.CreatePublicationRequest
+import com.example.data.source.remote.mock.mockedPetTalks
+import com.example.data.source.remote.mock.mockedProfiles
+import com.example.data.source.remote.mock.mockedPublications
 import com.example.domain.constant.User
 import com.example.domain.error.DomainException
 import com.example.domain.helper.Clock
