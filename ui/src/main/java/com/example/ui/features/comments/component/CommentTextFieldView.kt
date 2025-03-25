@@ -29,7 +29,7 @@ fun CommentTextFieldView(
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
-            .padding(bottom = LocalDimensions.current.m)
+            .padding(bottom = LocalDimensions.current.l)
     ) {
         OutlinedTextField(value = value,
             onValueChange = { text ->

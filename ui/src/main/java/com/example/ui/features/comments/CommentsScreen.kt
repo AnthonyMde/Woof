@@ -2,25 +2,19 @@ package com.example.ui.features.comments
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.ui.R
 import com.example.ui.component.BackTopAppBar
-import com.example.ui.features.comments.component.CommentItemView
-import com.example.ui.features.comments.component.CommentTextFieldView
-import com.example.ui.theme.LocalDimensions
+import com.example.ui.features.comments.component.CommentsScreenError
+import com.example.ui.features.comments.component.CommentsScreenLoading
+import com.example.ui.features.comments.component.CommentsScreenView
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
@@ -64,24 +58,17 @@ fun CommentScreen(
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-            ) {
-                items(state.comments) { comment ->
-                    CommentItemView(comment)
+            when {
+                state.isCommentsLoading -> {
+                    CommentsScreenLoading()
+                }
+                state.commentsError != null -> {
+                    CommentsScreenError(state.commentsError)
+                }
+                else -> {
+                    CommentsScreenView(state, onAction)
                 }
             }
-
-            CommentTextFieldView(
-                value = state.userCommentInputValue,
-                onAction = onAction,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.BottomCenter)
-                    .offset(y = -LocalDimensions.current.m)
-                    .padding(horizontal = LocalDimensions.current.m)
-            )
         }
     }
 }
