@@ -7,7 +7,7 @@ import androidx.navigation.compose.composable
 import com.example.ui.features.ShopScreen
 import com.example.ui.features.camera.CameraScreenRoot
 import com.example.ui.features.home.HomeScreenRoot
-import com.example.ui.features.profile.ProfileScreen
+import com.example.ui.features.profile.ProfileScreenRoot
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -45,8 +45,15 @@ fun AppNavHost(navController: NavHostController) {
             popExitTransition = {
                 defaultPopExitTransition()
             }
-        ) {
-            ProfileScreen()
+        ) { backStackEntry ->
+            val userId = backStackEntry.arguments?.getString("userId") ?: return@composable
+
+            ProfileScreenRoot(
+                userId,
+                navigateUp = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }

@@ -1,9 +1,10 @@
 package com.example.ui.features.profile
 
+import androidx.annotation.StringRes
 import com.example.domain.models.UserProfile
 
-sealed class ProfileScreenState{
-    data object Loading : ProfileScreenState()
-    data object Error : ProfileScreenState()
-    data class Success(val data: UserProfile) : ProfileScreenState()
+sealed interface ProfileScreenState {
+    data class Success(val profile: UserProfile): ProfileScreenState
+    data object Loading : ProfileScreenState
+    data class Error(@StringRes val error: Int) : ProfileScreenState
 }

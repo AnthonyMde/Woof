@@ -3,6 +3,7 @@ package com.example.domain.models
 data class UserProfile(
     val id: String,
     val name: String,
+    val picture: String,
     val address: UserAddress,
     val age: Int,
     val bio: String,

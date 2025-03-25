@@ -13,7 +13,7 @@ import org.koin.dsl.module
 val dataModules = module {
     // REPOSITORY
     single<PublicationsRepository> { PublicationsRepositoryImpl(get(), get()) }
-    single<UserRepository> { UserRepositoryImpl(get()) }
+    single<UserRepository> { UserRepositoryImpl(get(), get()) }
 
     // SOURCES
     single<FakeRemoteBackEnd> { FakeRemoteBackEndImpl(get()) }

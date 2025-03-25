@@ -6,4 +6,6 @@ object User {
     const val USERNAME = "Towny"
     const val USER_ID = "1"
     const val PICTURE = "android.resource://com.example.woof/drawable/user_pp"
+    const val CITY = "Toulouse"
+    const val COUNTRY = "France"
 }

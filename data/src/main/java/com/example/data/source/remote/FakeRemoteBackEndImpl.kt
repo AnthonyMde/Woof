@@ -6,6 +6,7 @@ import com.example.domain.constant.User
 import com.example.domain.helper.Clock
 import com.example.domain.models.UserAddress
 import com.example.domain.models.UserPreview
+import com.example.domain.models.UserProfile
 import kotlinx.coroutines.delay
 import java.util.UUID
 
@@ -27,8 +28,8 @@ internal class FakeRemoteBackEndImpl(
                 name = User.USERNAME,
                 pictureUri = User.PICTURE,
                 address = UserAddress(
-                    city = "Toulouse",
-                    country = "France"
+                    city = User.CITY,
+                    country = User.COUNTRY
                 )
             ),
             imageUriString = request.imageUriString,
@@ -38,51 +39,12 @@ internal class FakeRemoteBackEndImpl(
         return publicationDTO
     }
 
+    override suspend fun getUserProfileById(id: String): UserProfile? {
+        return mockedProfiles.find { it.id == id }
+    }
+
     private fun getMockedPublicationDTOs(): List<PublicationDTO> {
-        return listOf(
-            PublicationDTO(
-                id = UUID.randomUUID().toString(),
-                userPreview = UserPreview(
-                    userId = UUID.randomUUID().toString(),
-                    name = "Bobby",
-                    pictureUri = "",
-                    address = UserAddress(
-                        city = "Paris",
-                        country = "France"
-                    )
-                ),
-                imageUriString = "android.resource://com.example.woof/drawable/corgi",
-                timestamp = 1732567800000
-            ),
-            PublicationDTO(
-                id = UUID.randomUUID().toString(),
-                userPreview = UserPreview(
-                    userId = UUID.randomUUID().toString(),
-                    name = "King",
-                    pictureUri = "",
-                    address = UserAddress(
-                        city = "Bruxelles",
-                        country = "Belgique"
-                    )
-                ),
-                imageUriString = "android.resource://com.example.woof/drawable/cavalier_king",
-                timestamp = 1732777800000
-            ),
-            PublicationDTO(
-                id = UUID.randomUUID().toString(),
-                userPreview = UserPreview(
-                    userId = UUID.randomUUID().toString(),
-                    name = "Doudou",
-                    pictureUri = "",
-                    address = UserAddress(
-                        city = "Bordeaux",
-                        country = "France"
-                    )
-                ),
-                imageUriString = "android.resource://com.example.woof/drawable/doudou",
-                timestamp = 1730067800000
-            )
-        )
+        return mockedPublications
     }
 
     companion object {

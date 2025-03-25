@@ -12,6 +12,13 @@
     <string name="home_header_view_title">Hello %1$s!</string>
     <string name="home_header_view_profile_picture_description">My profile</string>
 
+    <!-- PROFILE DETAILS -->
+    <string name="profile_unknown_error">Sorry, an error occurred while loading your profile.</string>
+    <string name="profile_details_infos_age">%1$s yo</string>
+    <string name="profile_details_post_count">%1$s posts</string>
+    <string name="profile_details_follower_count">%1$s followers</string>
+    <string name="profile_details_following_count">%1$s followings</string>
+
     <!-- PUBLICATION -->
     <string name="publication_header_view_profile_picture_description">User profile picture</string>
 
