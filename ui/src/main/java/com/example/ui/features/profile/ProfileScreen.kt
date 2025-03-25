@@ -14,7 +14,6 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun ProfileScreenRoot(
-    userId: String,
     viewModel: ProfileViewModel = koinViewModel(),
     navigateUp: () -> Unit
 ) {
@@ -31,10 +30,6 @@ fun ProfileScreenRoot(
                 }
             }
         }
-    }
-
-    LaunchedEffect(userId) {
-        viewModel.loadProfile(userId)
     }
 
     ProfileScreen(

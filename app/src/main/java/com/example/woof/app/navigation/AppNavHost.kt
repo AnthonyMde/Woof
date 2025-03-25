@@ -51,11 +51,8 @@ fun AppNavHost(navController: NavHostController) {
             popExitTransition = {
                 defaultPopExitTransition()
             }
-        ) { backStackEntry ->
-            val userId = backStackEntry.arguments?.getString("userId") ?: return@composable
-
+        ) {
             ProfileScreenRoot(
-                userId,
                 navigateUp = {
                     navController.navigateUp()
                 }

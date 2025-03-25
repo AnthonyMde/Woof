@@ -13,7 +13,7 @@ val uiModules = module {
     // VIEWMODEL
     viewModel { HomeViewModel(get(), get(), get()) }
     viewModel { CameraViewModel(get(), get(), get(), get()) }
-    viewModel { ProfileViewModel(get()) }
+    viewModel { ProfileViewModel(get(), get()) }
     viewModel { CommentsViewModel(get(), get(), get()) }
 
     // HELPER
