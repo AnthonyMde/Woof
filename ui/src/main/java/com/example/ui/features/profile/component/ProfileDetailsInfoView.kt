@@ -51,6 +51,7 @@ fun ProfileDetailsInfoView(
                     painter = painterResource(R.drawable.ic_location_outlined),
                     contentDescription = null
                 )
+                Spacer(modifier = Modifier.width(LocalDimensions.current.xxs))
                 Text(
                     userProfile.address.city,
                     style = MaterialTheme.typography.headlineSmall

@@ -8,6 +8,7 @@ data class Dimensions(
     val xxs: Dp = 2.dp,
     val xs: Dp = 4.dp,
     val s: Dp = 8.dp,
+    val sm: Dp = 12.dp,
     val m: Dp = 16.dp,
     val l: Dp = 24.dp,
     val xl: Dp = 32.dp,

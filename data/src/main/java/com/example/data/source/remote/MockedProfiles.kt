@@ -20,7 +20,20 @@ internal val mockedProfiles = listOf(
             followerCount = 777,
             followingCount = 404
         ),
-        publicationImages = listOf("android.resource://com.example.woof/drawable/corgi")
+        publicationImages = listOf(
+            "android.resource://com.example.woof/drawable/corgi",
+            "android.resource://com.example.woof/drawable/doudou",
+            "android.resource://com.example.woof/drawable/cavalier_king",
+            "android.resource://com.example.woof/drawable/corgi",
+            "android.resource://com.example.woof/drawable/doudou",
+            "android.resource://com.example.woof/drawable/cavalier_king",
+            "android.resource://com.example.woof/drawable/corgi",
+            "android.resource://com.example.woof/drawable/doudou",
+            "android.resource://com.example.woof/drawable/cavalier_king",
+            "android.resource://com.example.woof/drawable/corgi",
+            "android.resource://com.example.woof/drawable/doudou",
+            "android.resource://com.example.woof/drawable/cavalier_king",
+        )
     ),
     UserProfile(
         id = "2",

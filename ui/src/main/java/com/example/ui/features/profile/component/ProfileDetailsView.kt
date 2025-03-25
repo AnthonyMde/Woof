@@ -18,34 +18,24 @@ import com.example.ui.theme.LocalDimensions
 
 @Composable
 fun ProfileDetailsView(profile: UserProfile) {
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
-        item {
-            Column(verticalArrangement = Arrangement.spacedBy(LocalDimensions.current.m)) {
-                AsyncImage(
-                    model = profile.picture,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(300.dp)
-                        .clip(
-                            RoundedCornerShape(
-                                bottomStart = 125.dp,
-                                bottomEnd = 125.dp
-                            )
-                        )
+    Column(
+        verticalArrangement = Arrangement.spacedBy(LocalDimensions.current.m)) {
+        AsyncImage(
+            model = profile.picture,
+            contentDescription = null,
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(300.dp)
+                .clip(
+                    RoundedCornerShape(
+                        bottomStart = 125.dp,
+                        bottomEnd = 125.dp
+                    )
                 )
+        )
 
-                ProfileDetailsInfoView(profile)
-            }
-        }
-
-        // TODO
-//        LazyVerticalGrid(columns = 2) {
-//
-//        }
+        ProfileDetailsInfoView(profile)
+        ProfilePublicationListView(images = profile.publicationImages)
     }
 }
