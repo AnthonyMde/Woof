@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Woof.Splash" parent="Theme.SplashScreen.IconBackground">
+        <item name="windowSplashScreenBackground">#D7D0FE</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/woof_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.Woof</item>
+    </style>
+</resources>
