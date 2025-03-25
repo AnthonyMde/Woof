@@ -18,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.ui.R
 import com.example.ui.component.BackTopAppBar
+import com.example.ui.features.comments.component.CommentItemView
 import com.example.ui.features.comments.component.CommentTextFieldView
 import com.example.ui.theme.LocalDimensions
 import org.koin.compose.viewmodel.koinViewModel
@@ -68,7 +69,7 @@ fun CommentScreen(
                     .fillMaxSize()
             ) {
                 items(state.comments) { comment ->
-                    Text(comment.text)
+                    CommentItemView(comment)
                 }
             }
 
