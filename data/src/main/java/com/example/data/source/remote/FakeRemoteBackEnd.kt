@@ -8,5 +8,5 @@ internal interface FakeRemoteBackEnd {
     suspend fun getPublications(): List<PublicationDTO>
     suspend fun createPublication(request: CreatePublicationRequest): PublicationDTO
     suspend fun getUserProfileById(id: String): UserProfile?
-    suspend fun togglePublicationLike(likerId: String, publicationId: String)
+    suspend fun togglePublicationLike(likerId: String, publicationId: String): List<PublicationDTO>
 }

@@ -37,6 +37,10 @@ internal class FakeRemoteBackEndImpl(
             likes = emptyList()
         )
 
+        mockedPublications = mockedPublications.toMutableList().apply {
+            add(publicationDTO)
+        }
+
         return publicationDTO
     }
 
@@ -44,7 +48,10 @@ internal class FakeRemoteBackEndImpl(
         return mockedProfiles.find { it.id == id }
     }
 
-    override suspend fun togglePublicationLike(likerId: String, publicationId: String) {
+    override suspend fun togglePublicationLike(
+        likerId: String,
+        publicationId: String
+    ): List<PublicationDTO> {
         mockedPublications = mockedPublications.map { publication ->
             if (publication.id != publicationId) return@map publication
 
@@ -54,6 +61,7 @@ internal class FakeRemoteBackEndImpl(
 
             publication.copy(likes = updatedLikes)
         }
+        return mockedPublications
     }
 
     private fun getMockedPublicationDTOs(): List<PublicationDTO> {

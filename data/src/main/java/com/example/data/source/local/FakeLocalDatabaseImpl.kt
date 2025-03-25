@@ -8,9 +8,14 @@ internal class FakeLocalDatabaseImpl : FakeLocalDatabase {
     private val savedPublications = mutableListOf<PublicationEntity>()
 
     override suspend fun savePublications(vararg publication: PublicationEntity) {
-        val existingItemsTimestamp = savedPublications.map { it.timestamp }
-        val newItems = publication.filter { it.timestamp !in existingItemsTimestamp }
-        savedPublications.addAll(newItems)
+        publication.forEach { newItem ->
+            val index = savedPublications.indexOfFirst { it.timestamp == newItem.timestamp }
+            if (index != -1) {
+                savedPublications[index] = newItem
+            } else {
+                savedPublications.add(newItem)
+            }
+        }
     }
 
     override suspend fun getPublications(): List<PublicationEntity> {

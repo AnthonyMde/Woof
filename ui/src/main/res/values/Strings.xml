@@ -22,6 +22,8 @@
 
     <!-- PUBLICATION -->
     <string name="publication_header_view_profile_picture_description">User profile picture</string>
+    <string name="publication_footer_view_like_icon_description">Like this publication.</string>
+    <string name="publication_footer_view_remove_like_icon_description">Remove like for this publication.</string>
 
     <!-- CAMERA -->
     <string name="camera_screen_no_permissions_view_title">Please, allow permissions 🙏</string>

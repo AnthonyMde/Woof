@@ -1,10 +1,11 @@
 package com.example.domain.repository
 
+import com.example.domain.models.Publication
 import com.example.domain.models.UserProfile
 import com.example.domain.models.UserSession
 
 interface UserRepository {
     suspend fun getUserSession(): UserSession
     suspend fun getUserProfile(userId: String): UserProfile?
-    suspend fun togglePublicationLike(likerId: String, publicationId: String)
+    suspend fun togglePublicationLike(likerId: String, publicationId: String): List<Publication>
 }

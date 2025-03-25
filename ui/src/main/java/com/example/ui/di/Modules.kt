@@ -10,7 +10,7 @@ import org.koin.dsl.module
 
 val uiModules = module {
     // VIEWMODEL
-    viewModel { HomeViewModel(get(), get()) }
+    viewModel { HomeViewModel(get(), get(), get()) }
     viewModel { CameraViewModel(get(), get(), get(), get()) }
     viewModel { ProfileViewModel(get()) }
 
