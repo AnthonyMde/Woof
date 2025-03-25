@@ -19,15 +19,10 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun CommentScreenRoot(
-    publicationId: String,
     navigateUp: () -> Unit,
     viewModel: CommentsViewModel = koinViewModel()
 ) {
-    val state by viewModel.state.collectAsStateWithLifecycle()
-
-    LaunchedEffect(publicationId) {
-        viewModel.loadComments(publicationId)
-    }
+    val state by viewModel.state.collectAsStateWithLifecycle(CommentsScreenState())
 
     CommentScreen(
         state = state,

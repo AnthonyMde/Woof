@@ -1,4 +1,4 @@
-package com.example.woof.app.navigation
+package com.example.ui.navigation
 
 import kotlinx.serialization.Serializable
 

@@ -3,7 +3,7 @@ package com.example.woof.app.navigation.navigationbar
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.ui.R
-import com.example.woof.app.navigation.Route
+import com.example.ui.navigation.Route
 
 enum class NavigationBarItem(
     @StringRes val title: Int,

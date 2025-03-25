@@ -9,6 +9,7 @@ import com.example.ui.features.camera.CameraScreenRoot
 import com.example.ui.features.comments.CommentScreenRoot
 import com.example.ui.features.home.HomeScreenRoot
 import com.example.ui.features.profile.ProfileScreenRoot
+import com.example.ui.navigation.Route
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -68,11 +69,8 @@ fun AppNavHost(navController: NavHostController) {
             popExitTransition = {
                 defaultPopExitTransition()
             }
-        ) { backStackEntry ->
-            val publicationId = backStackEntry.arguments?.getString("publicationId") ?: return@composable
-
+        ) {
             CommentScreenRoot(
-                publicationId,
                 navigateUp = {
                     navController.navigateUp()
                 }
