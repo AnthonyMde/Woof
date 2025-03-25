@@ -1,10 +1,13 @@
 package com.example.ui.features.comments
 
+import androidx.annotation.StringRes
 import com.example.domain.models.Comment
 
 data class CommentsScreenState(
     val comments: List<Comment> = emptyList(),
+    val isCommentsLoading: Boolean = false,
+    @StringRes val commentsError: Int? = null,
     val userCommentInputValue: String = "",
-    val userCommentInputError: String? = null,
+    @StringRes val userCommentInputError: Int? = null,
     val isSendCommentLoading: Boolean = false
 )

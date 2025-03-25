@@ -4,6 +4,7 @@ import com.example.data.entity.PublicationEntity
 import com.example.data.request.CreatePublicationRequest
 import com.example.data.source.local.FakeLocalDatabase
 import com.example.data.source.remote.FakeRemoteBackEnd
+import com.example.domain.models.Comment
 import com.example.domain.models.Publication
 import com.example.domain.repository.PublicationsRepository
 
@@ -29,5 +30,9 @@ internal class PublicationsRepositoryImpl(
 
         val publication = fakeRemoteBackEnd.createPublication(request).toPublication()
         fakeLocalDatabase.savePublications(PublicationEntity.from(publication))
+    }
+
+    override suspend fun getPublicationComments(publicationId: String): List<Comment> {
+        return fakeLocalDatabase.getPublicationComments(publicationId)
     }
 }

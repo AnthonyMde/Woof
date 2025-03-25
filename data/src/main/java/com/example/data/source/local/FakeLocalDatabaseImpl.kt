@@ -3,6 +3,7 @@ package com.example.data.source.local
 import com.example.data.entity.PublicationEntity
 import com.example.data.entity.UserSessionEntity
 import com.example.domain.constant.User
+import com.example.domain.models.Comment
 
 internal class FakeLocalDatabaseImpl : FakeLocalDatabase {
     private val savedPublications = mutableListOf<PublicationEntity>()
@@ -28,5 +29,9 @@ internal class FakeLocalDatabaseImpl : FakeLocalDatabase {
             name = User.USERNAME,
             pictureUriString = User.PICTURE
         )
+    }
+
+    override suspend fun getPublicationComments(publicationId: String): List<Comment> {
+        return savedPublications.find { it.id == publicationId }?.comments ?: emptyList()
     }
 }

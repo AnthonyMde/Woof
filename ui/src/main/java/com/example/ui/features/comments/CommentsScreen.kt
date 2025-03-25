@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -65,7 +67,9 @@ fun CommentScreen(
                 modifier = Modifier
                     .fillMaxSize()
             ) {
-                // TODO: display friends comments.
+                items(state.comments) { comment ->
+                    Text(comment.text)
+                }
             }
 
             CommentTextFieldView(

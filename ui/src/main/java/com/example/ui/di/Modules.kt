@@ -14,7 +14,7 @@ val uiModules = module {
     viewModel { HomeViewModel(get(), get(), get()) }
     viewModel { CameraViewModel(get(), get(), get(), get()) }
     viewModel { ProfileViewModel(get()) }
-    viewModel { CommentsViewModel() }
+    viewModel { CommentsViewModel(get()) }
 
     // HELPER
     single { PermissionsHelper(get()) }

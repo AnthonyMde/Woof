@@ -38,6 +38,7 @@ fun CommentTextFieldView(
             placeholder = { PlaceholderText(stringResource(R.string.comments_screen_comment_input_placeholder)) },
             textStyle = MaterialTheme.typography.bodyLarge,
             isError = error != null,
+            maxLines = 3,
             shape = RoundedCornerShape(LocalDimensions.current.corners),
             modifier = Modifier
                 .weight(1f)
