@@ -15,7 +15,7 @@ internal val mockedShopProducts = listOf(
         name = "Gourmet Treat Pack",
         brand = "Treatify",
         price = 1499,
-        imageUriString = "android.resource://com.example.woof/drawable/kiddles"
+        imageUriString = "android.resource://com.example.woof/drawable/kibbles"
     ),
     ShopProduct(
         id = "3",
@@ -29,7 +29,7 @@ internal val mockedShopProducts = listOf(
         name = "Stylish Dog Collar",
         brand = "WoofWear",
         price = 1299,
-        imageUriString = "android.resource://com.example.woof/drawable/luna_profile"
+        imageUriString = "android.resource://com.example.woof/drawable/dog_toy"
     ),
     ShopProduct(
         id = "5",

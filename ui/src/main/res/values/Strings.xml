@@ -48,4 +48,8 @@
     <string name="camera_screen_take_photo_error">Impossible to take a photo.</string>
     <string name="camera_screen_send_photo_error">Impossible to post your photo.</string>
     <string name="generate_pet_talk_error">Sorry, we cannot generate a pet talk for this image.</string>
+
+    <!-- SHOP -->
+    <string name="shop_cannot_load_products_error">Oops, we cannot load products for now.</string>
+    <string name="shop_search_placeholder">Search kibbles, toys…</string>
 </resources>

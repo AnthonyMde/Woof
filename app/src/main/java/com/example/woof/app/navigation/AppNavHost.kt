@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.ui.features.ShopScreen
 import com.example.ui.features.camera.CameraScreenRoot
 import com.example.ui.features.comments.CommentScreenRoot
 import com.example.ui.features.home.HomeScreenRoot
 import com.example.ui.features.profile.ProfileScreenRoot
+import com.example.ui.features.shop.ShopScreenRoot
 import com.example.ui.navigation.Route
 
 @Composable
@@ -41,7 +41,7 @@ fun AppNavHost(navController: NavHostController) {
         }
 
         composable<Route.Shop> {
-            ShopScreen()
+            ShopScreenRoot()
         }
 
         composable<Route.Profile>(

@@ -4,6 +4,7 @@ import com.example.ui.features.camera.CameraViewModel
 import com.example.ui.features.comments.CommentsViewModel
 import com.example.ui.features.home.HomeViewModel
 import com.example.ui.features.profile.ProfileViewModel
+import com.example.ui.features.shop.ShopViewModel
 import com.example.ui.helper.FileHelper
 import com.example.ui.helper.PermissionsHelper
 import org.koin.core.module.dsl.viewModel
@@ -15,6 +16,7 @@ val uiModules = module {
     viewModel { CameraViewModel(get(), get(), get(), get(), get()) }
     viewModel { ProfileViewModel(get(), get()) }
     viewModel { CommentsViewModel(get(), get(), get()) }
+    viewModel { ShopViewModel(get()) }
 
     // HELPER
     single { PermissionsHelper(get()) }
