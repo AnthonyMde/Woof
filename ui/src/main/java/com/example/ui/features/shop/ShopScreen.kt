@@ -1,5 +1,6 @@
 package com.example.ui.features.shop
 
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,7 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.ui.features.shop.component.ShopProductItemView
 import com.example.ui.features.shop.component.ShopSearchView
@@ -35,9 +38,8 @@ fun ShopScreenRoot(
                 is ShopScreenAction.OnProductClicked -> {
                     openChromeTab(context, action.productUri)
                 }
-                is ShopScreenAction.OnSearchInputChanged -> TODO()
+                else -> viewModel.onAction(action)
             }
-            viewModel.onAction(action)
         }
     )
 }
@@ -47,10 +49,17 @@ fun ShopScreen(
     state: ShopScreenState,
     onAction: (ShopScreenAction) -> Unit
 ) {
+    val focus = LocalFocusManager.current
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
             .fillMaxSize()
+            .pointerInput(null) {
+                detectTapGestures(
+                    onTap = { focus.clearFocus() }
+                )
+            }
             .padding(top = LocalDimensions.current.l)
     ) {
         ShopSearchView(
