@@ -89,11 +89,12 @@ fun PetTalkButton(isLoading: Boolean, onAction: (CameraScreenAction) -> Unit) {
         } else {
             CircularProgressIndicator(
                 modifier = Modifier.size(LocalDimensions.current.iconSmall),
-                strokeWidth = LocalDimensions.current.stroke
+                strokeWidth = LocalDimensions.current.stroke,
+                color = MaterialTheme.colorScheme.onSecondary
             )
         }
 
-        Spacer(Modifier.width(LocalDimensions.current.xs))
+        Spacer(Modifier.width(LocalDimensions.current.s))
 
         Text(
             stringResource(R.string.camera_generate_pet_talk_button),
