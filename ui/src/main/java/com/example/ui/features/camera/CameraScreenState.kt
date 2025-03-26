@@ -2,6 +2,7 @@ package com.example.ui.features.camera
 
 import androidx.annotation.StringRes
 import androidx.camera.core.CameraSelector
+import com.example.domain.models.publication.Publication
 
 data class CameraScreenState(
     val isTakePhotoLoading: Boolean = false,
@@ -14,5 +15,7 @@ data class CameraScreenState(
 
     val petTalk: String? = null,
     val isPetTalkLoading: Boolean = false,
-    @StringRes val petTalkError: Int? = null
+    @StringRes val petTalkError: Int? = null,
+
+    val tintColor: Publication.Color = Publication.Color.entries.random()
 )

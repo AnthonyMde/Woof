@@ -34,8 +34,9 @@ fun SelectedPhotoView(
     ) {
         state.selectedPhotoPath?.let {
             CameraImagePreviewView(
-                it,
-                onAction
+                selectedPhotoPath = it,
+                tint= state.tintColor,
+                onAction = onAction
             )
         }
 

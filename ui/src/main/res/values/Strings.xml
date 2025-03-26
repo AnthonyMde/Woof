@@ -39,6 +39,7 @@
     <string name="camera_screen_no_permissions_view_title">Please, allow permissions 🙏</string>
     <string name="camera_take_photo_view_send_button_title">Share</string>
     <string name="camera_generate_pet_talk_button">Generate pet talk</string>
+    <string name="camera_generate_random_color_brush_icon">Change publication border color.</string>
     <!-- CAMERA DESCRIPTIONS -->
     <string name="camera_take_photo_view_capture_description">Take a photo</string>
     <string name="camera_take_photo_view_gallery_description">Pick a photo in your gallery.</string>

@@ -84,6 +84,9 @@ class CameraViewModel(
 
             CameraScreenAction.OnSwitchCamera -> onSwitchCamera()
             CameraScreenAction.OnGeneratePetTalkClicked -> generatePetTalk()
+            is CameraScreenAction.OnChangeColorClicked -> {
+                _state.update { it.copy(tintColor = action.color) }
+            }
         }
     }
 
@@ -145,7 +148,7 @@ class CameraViewModel(
         val session = getUserSessionUseCase()
         val imageUriString = _state.value.selectedPhotoPath
         val petTalk = _state.value.petTalk
-        val color = Publication.Color.entries.random()
+        val color = _state.value.tintColor
 
         if (imageUriString != null) {
             val postPublicationModel = PostPublicationModel(

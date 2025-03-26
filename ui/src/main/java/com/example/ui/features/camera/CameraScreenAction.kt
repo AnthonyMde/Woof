@@ -3,6 +3,7 @@ package com.example.ui.features.camera
 import android.net.Uri
 import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.ImageProxy
+import com.example.domain.models.publication.Publication
 
 sealed interface CameraScreenAction {
     data object OnCameraPermissionGranted : CameraScreenAction
@@ -14,4 +15,5 @@ sealed interface CameraScreenAction {
     data class OnPickPhoto(val uri: Uri) : CameraScreenAction
     data object OnSwitchCamera : CameraScreenAction
     data object OnGeneratePetTalkClicked : CameraScreenAction
+    data class OnChangeColorClicked(val color: Publication.Color) : CameraScreenAction
 }
