@@ -33,6 +33,7 @@ import com.example.ui.theme.LocalDimensions
 @Composable
 fun CameraPreviewView(
     cameraSelector: CameraSelector,
+    isTakePhotoLoading: Boolean,
     onAction: (CameraScreenAction) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -83,6 +84,7 @@ fun CameraPreviewView(
                 )
                 CameraTakePhotoButtonView(
                     controller = cameraController,
+                    isLoading = isTakePhotoLoading,
                     onAction = onAction,
                     modifier = Modifier
                 )

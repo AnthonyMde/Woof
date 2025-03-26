@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import androidx.camera.core.CameraSelector
 
 data class CameraScreenState(
+    val isTakePhotoLoading: Boolean = false,
     val hasCameraPermission: Boolean? = null,
     val selectedPhotoPath: String? = null,
     @StringRes val takePhotoError: Int? = null,

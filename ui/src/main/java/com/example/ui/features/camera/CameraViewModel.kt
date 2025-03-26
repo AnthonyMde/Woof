@@ -52,10 +52,17 @@ class CameraViewModel(
                 }
             }
 
-            is CameraScreenAction.OnTakePhoto -> onPhotoTaken(action.image)
-            is CameraScreenAction.OnTakePhotoError -> {
+            CameraScreenAction.OnTakePhoto -> {
+                _state.update { it.copy(isTakePhotoLoading = true) }
+            }
+
+            is CameraScreenAction.OnPhotoTaken -> onPhotoTaken(action.image)
+            is CameraScreenAction.OnPhotoTakenError -> {
                 _state.update {
-                    it.copy(takePhotoError = R.string.camera_screen_take_photo_error)
+                    it.copy(
+                        takePhotoError = R.string.camera_screen_take_photo_error,
+                        isTakePhotoLoading = false
+                    )
                 }
             }
 
@@ -94,23 +101,31 @@ class CameraViewModel(
         generatePetTalkUseCase(imageUriString).collectLatest { result ->
             when (result) {
                 is Resource.Error -> {
-                    _state.update { it.copy(
-                        petTalkError = R.string.generate_pet_talk_error,
-                        isPetTalkLoading = false
-                    ) }
+                    _state.update {
+                        it.copy(
+                            petTalkError = R.string.generate_pet_talk_error,
+                            isPetTalkLoading = false
+                        )
+                    }
                 }
+
                 is Resource.Loading -> {
-                    _state.update { it.copy(
-                        petTalkError = null,
-                        isPetTalkLoading = true
-                    ) }
+                    _state.update {
+                        it.copy(
+                            petTalkError = null,
+                            isPetTalkLoading = true
+                        )
+                    }
                 }
+
                 is Resource.Success -> {
-                    _state.update { it.copy(
-                        petTalkError = null,
-                        isPetTalkLoading = false,
-                        petTalk = result.data
-                    ) }
+                    _state.update {
+                        it.copy(
+                            petTalkError = null,
+                            isPetTalkLoading = false,
+                            petTalk = result.data
+                        )
+                    }
                 }
             }
         }
@@ -164,7 +179,7 @@ class CameraViewModel(
     }
 
     private fun onPhotoTaken(image: ImageProxy) {
-        _state.update { it.copy(takePhotoError = null) }
+        _state.update { it.copy(takePhotoError = null, isTakePhotoLoading = false) }
 
         val rotatedBitmap = CameraControlHelper.imageProxyToRotatedBitmap(image)
         val uriString = fileHelper.saveBitmapToTempFile(

@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,6 +23,7 @@ import com.example.ui.theme.LocalDimensions
 @Composable
 fun CameraTakePhotoButtonView(
     controller: LifecycleCameraController,
+    isLoading: Boolean,
     onAction: (CameraScreenAction) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -32,23 +34,32 @@ fun CameraTakePhotoButtonView(
         modifier = modifier
             .clip(CircleShape)
             .clickable {
+                onAction(CameraScreenAction.OnTakePhoto)
+
                 CameraControlHelper.takePhoto(
                     context,
                     controller,
                     onPhotoTaken = { imageProxy ->
-                        onAction(CameraScreenAction.OnTakePhoto(imageProxy))
+                        onAction(CameraScreenAction.OnPhotoTaken(imageProxy))
                     },
                     onError = { error ->
-                        onAction(CameraScreenAction.OnTakePhotoError(error))
+                        onAction(CameraScreenAction.OnPhotoTakenError(error))
                     }
                 )
             }
             .padding(LocalDimensions.current.s)
     ) {
-        Icon(
-            painter = painterResource(R.drawable.ic_take_photo),
-            contentDescription = stringResource(R.string.camera_take_photo_view_capture_description),
-            modifier = Modifier.size(LocalDimensions.current.iconExtraLarge)
-        )
+        if (!isLoading) {
+            Icon(
+                painter = painterResource(R.drawable.ic_take_photo),
+                contentDescription = stringResource(R.string.camera_take_photo_view_capture_description),
+                modifier = Modifier.size(LocalDimensions.current.iconExtraLarge)
+            )
+        } else {
+            CircularProgressIndicator(
+                modifier = Modifier.size(LocalDimensions.current.iconLarge),
+                strokeWidth = LocalDimensions.current.stroke
+            )
+        }
     }
 }
